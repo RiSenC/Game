@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // ДОБАВИТЬ ЭТУ СТРОКУ!
+using UnityEngine.InputSystem;
 
-public class CameraController : MonoBehaviour
+public class SmoothCameraFollowWithCursor : MonoBehaviour
 {
-    [Header("Camera Settings")]
-    public Transform target;
-    public float smoothSpeed = 0.125f;
-    public Vector3 offset = new Vector3(0, 0, -10);
+    public Transform playerTarget;
+    public float smoothTime = 0.125f;
+    public Vector3 cameraOffset = new Vector3(0, 0, -10);
     
     [Header("Mouse Offset")]
     public float mouseInfluence = 0.3f;
@@ -22,32 +21,31 @@ public class CameraController : MonoBehaviour
     
     void LateUpdate()
     {
-        if (target == null) return;
+        if (playerTarget == null || mainCamera == null) return;
         
-        // Позиция игрока
-        Vector3 targetPosition = target.position + offset;
+        // Target position at player + offset
+        Vector3 targetPosition = playerTarget.position + cameraOffset;
         
-        // Смещение к курсору
+        // Get mouse offset relative to player
         Vector3 mouseOffset = GetMouseWorldOffset();
         targetPosition += mouseOffset * mouseInfluence;
         
-        // Плавное следование
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothSpeed);
+        // Smooth follow
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
     
     Vector3 GetMouseWorldOffset()
     {
-        // Проверяем доступность мыши
         if (Mouse.current == null) return Vector3.zero;
         
         Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
         mouseScreenPos.z = -mainCamera.transform.position.z;
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
         
-        Vector3 offset = mouseWorldPos - target.position;
+        Vector3 offset = mouseWorldPos - playerTarget.position;
         offset.z = 0;
         
-        // Ограничиваем максимальное смещение
+        // Clamp maximum offset
         if (offset.magnitude > maxMouseOffset)
         {
             offset = offset.normalized * maxMouseOffset;

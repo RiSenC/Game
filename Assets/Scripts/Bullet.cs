@@ -2,31 +2,57 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 10;
-    public float lifetime = 3f;
+    private Rigidbody2D rb;
+    private Vector2 direction;
+    private float speed;
+    private float damage;
+    public float lifetime = 5f;
+    private bool hasInitialized = false;
     
     void Start()
     {
-        // Автоуничтожение через заданное время
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         Destroy(gameObject, lifetime);
+    }
+    
+    void FixedUpdate()
+    {
+        if (hasInitialized)
+        {
+            rb.linearVelocity = direction * speed;
+        }
+    }
+    
+    public void Initialize(Vector2 fireDirection, float bulletSpeed, float bulletDamage)
+    {
+        direction = fireDirection.normalized;
+        speed = bulletSpeed;
+        damage = bulletDamage;
+        hasInitialized = true;
+        
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
     }
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Пуля уничтожается при столкновении с чем угодно, кроме игрока и других пуль
-        if (!collision.CompareTag("Player") && !collision.CompareTag("Bullet"))
-        {
-            // Здесь позже добавим урон врагам
-            Destroy(gameObject);
-        }
-    }
-    
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Альтернативный вариант для не-триггер коллайдеров
-        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-        }
+        if (collision.CompareTag("Player"))
+            return;
+        
+        // if (collision.CompareTag("Enemy"))
+        // {
+        //     Enemy enemy = collision.GetComponent<Enemy>();
+        //     if (enemy != null)
+        //     {
+        //         enemy.TakeDamage(damage);
+        //     }
+        //     Destroy(gameObject);
+        // }
+        // else if (!collision.CompareTag("Player"))
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }

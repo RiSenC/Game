@@ -3,16 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float maxSpeed = 8f;
-    public float acceleration = 15f;
-    public float deceleration = 20f;
-    public float rotationSpeed = 180f;
-    public float driftCompensation = 2f;
+    public HullConfig hullConfig;
     
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private InputAction moveAction;
+    private float currentForwardSpeed = 0f;
     
     void Start()
     {
@@ -20,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         
-        // Настройка физики для плавного движения
-        rb.linearDamping = 0.5f;
-        rb.angularDamping = 2f;
+        rb.linearDamping = 0.1f;
+        rb.angularDamping = 0.5f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     
     void FixedUpdate()
@@ -30,52 +26,41 @@ public class PlayerMovement : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         HandleMovement();
         HandleRotation();
-        HandleDriftCompensation();
     }
     
     void HandleMovement()
     {
-        Vector2 currentVelocity = rb.linearVelocity;
         Vector2 forwardDirection = transform.up;
+        float targetSpeed = moveInput.y * hullConfig.maxSpeed;
         
-        // Только прямое движение вперед/назад (без бокового)
-        float currentForwardSpeed = Vector2.Dot(currentVelocity, forwardDirection);
-        float targetSpeed = moveInput.y * maxSpeed;
+        float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) 
+            ? hullConfig.acceleration 
+            : hullConfig.deceleration;
+        currentForwardSpeed = Mathf.MoveTowards(currentForwardSpeed, targetSpeed, accelerationRate * Time.fixedDeltaTime);
         
-        // Плавное ускорение и торможение
-        float speedDiff = targetSpeed - currentForwardSpeed;
-        float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
-        float force = speedDiff * accelerationRate;
-        
-        rb.AddForce(forwardDirection * force);
-        
-        // Ограничение максимальной скорости
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        Vector2 targetVelocity = forwardDirection * currentForwardSpeed;
+        if (Vector2.Distance(rb.linearVelocity, targetVelocity) > 0.01f)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = targetVelocity;
         }
     }
     
     void HandleRotation()
     {
-        if (moveInput.x != 0)
+        float rotationInput = moveInput.x;
+        
+        if (moveInput.y < -0.1f)
         {
-            float rotation = -moveInput.x * rotationSpeed * Time.fixedDeltaTime;
-            
-            // Меньше вращения на высоких скоростях (реалистичнее)
-            float speedFactor = Mathf.Clamp01(rb.linearVelocity.magnitude / maxSpeed);
-            rotation *= Mathf.Lerp(1f, 0.6f, speedFactor);
+            rotationInput = -rotationInput;
+        }
+        
+        if (rotationInput != 0)
+        {
+            float rotation = -rotationInput * hullConfig.rotationSpeed * Time.fixedDeltaTime;
+            float speedFactor = Mathf.Clamp01(Mathf.Abs(currentForwardSpeed) / hullConfig.maxSpeed);
+            rotation *= Mathf.Lerp(1f, 0.5f, speedFactor);
             
             rb.MoveRotation(rb.rotation + rotation);
         }
-    }
-    
-    void HandleDriftCompensation()
-    {
-        // Уменьшает боковой дрифт (как в гоночных играх)
-        Vector2 forwardVelocity = transform.up * Vector2.Dot(rb.linearVelocity, transform.up);
-        Vector2 rightVelocity = transform.right * Vector2.Dot(rb.linearVelocity, transform.right);
-        
-        rb.linearVelocity = forwardVelocity + rightVelocity * 0.3f;
     }
 }

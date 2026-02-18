@@ -1,84 +1,73 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WeaponController : MonoBehaviour
+public class TurretController : MonoBehaviour
 {
-    [Header("Weapon Settings")]
     public Transform barrelPoint;
     public GameObject bulletPrefab;
-    public float fireRate = 0.2f;
-    public float bulletSpeed = 15f;
-    public float weaponRotationSpeed = 360f;
+    public TurretConfig turretConfig;
     
-    private float nextFireTime;
-    private InputAction fireAction;
     private Camera mainCamera;
+    private float lastFireTime = 0f;
+    private PlayerInput playerInput;
+    private InputAction fireAction;
+    private Vector3 mouseWorldPos;
     
     void Start()
     {
-        PlayerInput playerInput = GetComponent<PlayerInput>();
-        fireAction = playerInput.actions["Fire"];
         mainCamera = Camera.main;
-        
-        // Создаем точку выстрела если не назначена
-        if (barrelPoint == null)
-        {
-            GameObject point = new GameObject("BarrelPoint");
-            point.transform.SetParent(transform);
-            point.transform.localPosition = new Vector3(0, 0.5f, 0);
-            barrelPoint = point.transform;
-        }
+        playerInput = GetComponentInParent<PlayerInput>();
+        fireAction = playerInput.actions["Fire"];
     }
     
     void Update()
     {
-        RotateWeaponTowardsMouse();
-        HandleShooting();
+        UpdateMousePosition();
+        AimAtMouse();
+        
+        if (fireAction.IsPressed())
+        {
+            TryFire();
+        }
     }
     
-    void RotateWeaponTowardsMouse()
+    void UpdateMousePosition()
     {
-        // Получаем позицию мыши в мировых координатах
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mousePosition.z = 0;
-        
-        // Вычисляем направление к мыши
-        Vector2 direction = (mousePosition - transform.position).normalized;
-        
-        // Плавный поворот башни
+        Vector3 mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = Mathf.Abs(mainCamera.transform.position.z);
+        mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
+    }
+    
+    void AimAtMouse()
+    {
+        Vector2 direction = (mouseWorldPos - barrelPoint.position).normalized;
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        
         float currentAngle = transform.eulerAngles.z;
+        float angleDiff = Mathf.DeltaAngle(currentAngle, targetAngle);
+        float newAngle = currentAngle + Mathf.Clamp(angleDiff, -turretConfig.turretRotationSpeed * Time.deltaTime, turretConfig.turretRotationSpeed * Time.deltaTime);
         
-        float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, weaponRotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0, 0, newAngle);
+        transform.rotation = Quaternion.AngleAxis(newAngle, Vector3.forward);
     }
     
-    void HandleShooting()
+    void TryFire()
     {
-        if (fireAction.IsPressed() && Time.time >= nextFireTime)
-        {
-            Shoot();
-            nextFireTime = Time.time + fireRate;
-        }
-    }
-    
-    void Shoot()
-    {
-        if (bulletPrefab == null)
-        {
-            Debug.LogWarning("Bullet prefab not assigned!");
+        if (Time.time - lastFireTime < turretConfig.fireRate)
             return;
-        }
         
-        GameObject bullet = Instantiate(bulletPrefab, barrelPoint.position, barrelPoint.rotation);
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        lastFireTime = Time.time;
+        Fire();
+    }
+    
+    void Fire()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, barrelPoint.position, Quaternion.identity);
         
-        if (bulletRb != null)
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        if (bullet != null)
         {
-            bulletRb.linearVelocity = barrelPoint.up * bulletSpeed;
+            Vector2 fireDirection = barrelPoint.up;
+            bullet.Initialize(fireDirection, turretConfig.bulletSpeed, turretConfig.bulletDamage);
         }
-        
-        // Автоуничтожение пули через 3 секунды
-        Destroy(bullet, 3f);
     }
 }
