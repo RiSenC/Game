@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d311b3691b1f8eb43976b79c78c563c4, type: 3}
   m_Name: DefaultHullConfig
   m_EditorClassIdentifier: Assembly-CSharp::HullConfig
-  maxSpeed: 8
-  acceleration: 25
-  deceleration: 30
+  hullType: 0
+  maxSpeed: 50
+  acceleration: 20
   rotationSpeed: 180
+  steeringResponse: 150
+  handbrakeSteeringBoost: 2
+  maxHealth: 100
+  armor: 15
+  hullSprite: {fileID: 21300000, guid: be4c24bb3e79f0046a8fb7bfdcbdc3d2, type: 3}
+  hullScale: {x: 1, y: 1, z: 1}
