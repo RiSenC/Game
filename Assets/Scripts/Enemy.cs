@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Updated Enemy to use new HealthSystem and modular architecture.
+/// </summary>
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Config")]
@@ -13,7 +16,7 @@ public class Enemy : MonoBehaviour
     public Color damageFlashColor = Color.red;
     public float damageFlashDuration = 0.1f;
     
-    private float currentHealth;
+    private HealthSystem healthSystem;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
@@ -23,9 +26,17 @@ public class Enemy : MonoBehaviour
     
     void Start()
     {
-        currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        healthSystem = GetComponent<HealthSystem>();
+        
+        // Setup health system if not present
+        if (healthSystem == null)
+        {
+            healthSystem = gameObject.AddComponent<HealthSystem>();
+            healthSystem.maxHP = maxHealth;
+            healthSystem.currentHP = maxHealth;
+        }
         
         if (spriteRenderer != null)
         {
@@ -34,7 +45,7 @@ public class Enemy : MonoBehaviour
                 spriteRenderer.sprite = enemySprite;
         }
         
-        // Find player using new method
+        // Find player
         PlayerMovement playerMovement = Object.FindFirstObjectByType<PlayerMovement>();
         if (playerMovement != null)
         {
@@ -47,11 +58,15 @@ public class Enemy : MonoBehaviour
             rb.gravityScale = 0;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+        
+        // Subscribe to death event
+        if (healthSystem != null)
+            healthSystem.OnDeath += Die;
     }
     
     void FixedUpdate()
     {
-        if (playerTransform == null)
+        if (playerTransform == null || healthSystem.IsDead)
             return;
         
         // Get direction to player
@@ -90,24 +105,27 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage)
+    // Handle damage flash when taking damage
+    private void OnEnable()
     {
-        currentHealth -= damage;
-        
-        // Flash red
+        if (healthSystem != null)
+            healthSystem.OnHealthChanged += HandleDamage;
+    }
+    
+    private void OnDisable()
+    {
+        if (healthSystem != null)
+            healthSystem.OnHealthChanged -= HandleDamage;
+    }
+    
+    private void HandleDamage(float current, float max)
+    {
+        // Flash red on damage
         if (spriteRenderer != null)
         {
             spriteRenderer.color = damageFlashColor;
             isFlashing = true;
             flashTimer = damageFlashDuration;
-        }
-        
-        Debug.Log($"Enemy hit! Health: {currentHealth}/{maxHealth}");
-        
-        // Check if dead
-        if (currentHealth <= 0)
-        {
-            Die();
         }
     }
     

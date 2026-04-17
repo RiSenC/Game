@@ -1,11 +1,11 @@
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor" at "2026-03-05T16:17:08.5983035Z"
 Built from '6000.3/staging' branch; Version is '6000.3.9f1 (7a9955a4f2fa) revision 8034645'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor" at "2026-04-17T07:34:32.4117582Z"
 OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32693 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
 System  architecture: x64
 Process architecture: x64
-Date: 2026-03-05T16:17:08Z
+Date: 2026-04-17T07:34:32Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Unity.exe
@@ -19,7 +19,7 @@ D:/GitHub_Unity/Game
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-53155
+59172
 -licensingIpc
 LicenseClient-cybor
 -job-worker-count
@@ -67,14 +67,16 @@ D:/GitHub_Unity/Game
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
-Player connection [3144]  Target information:
+Player connection [8056]  Target information:
 
-Player connection [3144]  * "[IP] 26.211.197.167 [Port] 0 [Flags] 2 [Guid] 3259217581 [EditorId] 3259217581 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [8056]  * "[IP] 26.211.197.167 [Port] 0 [Flags] 2 [Guid] 185418485 [EditorId] 185418485 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [3144]  * "[IP] 192.168.0.153 [Port] 0 [Flags] 2 [Guid] 3259217581 [EditorId] 3259217581 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [8056]  * "[IP] 192.168.0.153 [Port] 0 [Flags] 2 [Guid] 185418485 [EditorId] 185418485 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [3144] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [3144] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8056]  * "[IP] 172.18.0.1 [Port] 0 [Flags] 2 [Guid] 185418485 [EditorId] 185418485 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [8056] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8056] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -86,7 +88,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 8.96 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.91 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.3.9f1 (7a9955a4f2fa)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -102,53 +104,53 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56604
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003279 seconds.
-- Loaded All Assemblies, in  0.741 seconds
+Registered in 0.002763 seconds.
+- Loaded All Assemblies, in  0.953 seconds
 [Licensing::Client] Handshaking with LicensingClient:
   Version:                 1.17.4+4293ba1
-  Session Id:              138c028b737248a4bb4a38ef2255f7e9
-  Correlation Id:          476cf53426dd4de7735aa7a1b8db1b25
-  External correlation Id: 8868590297875405710
+  Session Id:              a552d24dfc304a138cf80e996969f706
+  Correlation Id:          f4c32fcb8f9aee03941dfd4f1068ba61
+  External correlation Id: 4074667499776441944
   Machine Id:              7tqNkU/SVULWXSjn9y3JhTbsvig=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-cybor" (connect: 0.00s, validation: 0.00s, handshake: 1.35s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor-notifications" at "2026-03-05T16:17:09.9519469Z"
-[Licensing::Module] Licensing Background thread has ended after 1.35s
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-cybor" (connect: 0.00s, validation: 0.00s, handshake: 1.40s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor-notifications" at "2026-04-17T07:34:33.8098284Z"
+[Licensing::Module] Licensing Background thread has ended after 1.40s
 Native extension for WindowsStandalone target not found
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.820 seconds
-Domain Reload Profiling: 1554ms
-	BeginReloadAssembly (262ms)
+- Finished resetting the current domain, in  0.643 seconds
+Domain Reload Profiling: 1535ms
+	BeginReloadAssembly (280ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (3ms)
-	RebuildCommonClasses (64ms)
-	RebuildNativeTypeToScriptingClass (23ms)
-	initialDomainReloadingComplete (107ms)
-	LoadAllAssembliesAndSetupDomain (278ms)
-		LoadAssemblies (254ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (152ms)
+	LoadAllAssembliesAndSetupDomain (398ms)
+		LoadAssemblies (276ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (272ms)
-			TypeCache.Refresh (269ms)
-				TypeCache.ScanAssembly (250ms)
+		AnalyzeDomain (363ms)
+			TypeCache.Refresh (361ms)
+				TypeCache.ScanAssembly (340ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (820ms)
+	FinalizeReload (643ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (757ms)
+		SetupLoadedEditorAssemblies (576ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (96ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (182ms)
-			ProcessInitializeOnLoadAttributes (349ms)
-			ProcessInitializeOnLoadMethodAttributes (124ms)
+			InitializePlatformSupportModulesInManaged (88ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (124ms)
+			ProcessInitializeOnLoadAttributes (263ms)
+			ProcessInitializeOnLoadMethodAttributes (96ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -171,11 +173,15 @@ Begin MonoManager ReloadAssembly
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
-- Loaded All Assemblies, in  1.273 seconds
+Asset path could not be found for script compilation file '/Assets/Scripts/ChassisController.cs'
+Asset path could not be found for script compilation file '/Assets/Scripts/ChassisStats.cs'
+Asset path could not be found for script compilation file '/Assets/Scripts/HullConfig.cs'
+Asset path could not be found for script compilation file '/Assets/Scripts/PlayerMovement.cs'
+- Loaded All Assemblies, in  0.969 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 1.86 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.62 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Package Manager log level set to [2]
@@ -187,84 +193,1176 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.717 seconds
-Domain Reload Profiling: 2983ms
-	BeginReloadAssembly (319ms)
+- Finished resetting the current domain, in  1.357 seconds
+Domain Reload Profiling: 2321ms
+	BeginReloadAssembly (273ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (14ms)
+		DisableScriptedObjects (13ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (52ms)
-	RebuildCommonClasses (53ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (76ms)
-	LoadAllAssembliesAndSetupDomain (801ms)
-		LoadAssemblies (590ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (55ms)
+	LoadAllAssembliesAndSetupDomain (590ms)
+		LoadAssemblies (430ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (392ms)
-			TypeCache.Refresh (263ms)
-				TypeCache.ScanAssembly (244ms)
-			BuildScriptInfoCaches (103ms)
-			ResolveRequiredComponents (22ms)
-	FinalizeReload (1718ms)
+		AnalyzeDomain (306ms)
+			TypeCache.Refresh (199ms)
+				TypeCache.ScanAssembly (181ms)
+			BuildScriptInfoCaches (89ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1357ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1488ms)
+		SetupLoadedEditorAssemblies (1177ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (270ms)
-			ProcessInitializeOnLoadAttributes (968ms)
-			ProcessInitializeOnLoadMethodAttributes (227ms)
-			AfterProcessingInitializeOnLoad (11ms)
-			EditorAssembliesLoaded (1ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (188ms)
+			ProcessInitializeOnLoadAttributes (795ms)
+			ProcessInitializeOnLoadMethodAttributes (177ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 2.62 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.59 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7268 unused Assets / (4.1 MB). Loaded Objects now: 8100.
-Memory consumption went from 153.2 MB to 149.2 MB.
-Total: 13.871595 ms (FindLiveObjects: 1.139880 ms CreateObjectMapping: 0.804572 ms MarkObjects: 8.853988 ms  DeleteObjects: 3.066451 ms)
+Unloading 7279 unused Assets / (4.8 MB). Loaded Objects now: 8111.
+Memory consumption went from 153.5 MB to 148.7 MB.
+Total: 8.903855 ms (FindLiveObjects: 0.720622 ms CreateObjectMapping: 0.506140 ms MarkObjects: 5.766445 ms  DeleteObjects: 1.905410 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 14978.675974 seconds.
-  path: Assets/Scripts/VehicleManager.cs
-  artifactKey: Guid(63059d434b2816d4389c4b70381046f2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Scripts/VehicleManager.cs using Guid(63059d434b2816d4389c4b70381046f2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8edb68751ab3283da09a6e2e938b9b17') in 0.14535045655244 seconds
+  Time since last request: 1675.928473 seconds.
+  path: Assets/Scripts/Firepower
+  artifactKey: Guid(b7583ab739316b4429093958f0ef653b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower using Guid(b7583ab739316b4429093958f0ef653b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '278da0bc2a0cbb9be85cfd99f69befa2') in 0.00366939094214 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Configs/MachineGunConfig.asset
-  artifactKey: Guid(e0cb52d29d69c2f46b9e831dbee72ae6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Configs/MachineGunConfig.asset using Guid(e0cb52d29d69c2f46b9e831dbee72ae6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c07c08a60f17118393067a3a5875bb2d') in 0.05979426156118 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+  Time since last request: 0.854805 seconds.
+  path: Assets/Scripts/Firepower
+  artifactKey: Guid(b7583ab739316b4429093958f0ef653b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower using Guid(b7583ab739316b4429093958f0ef653b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f0c5088574659dee76b971248e3a49ea') in 0.06520165272402 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000039 seconds.
+  Time since last request: 1.423023 seconds.
+  path: Assets/Scripts/Bullet.cs
+  artifactKey: Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Bullet.cs using Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '811cdd77e30d70a28ede26048a73b1a1') in 0.00053645086177 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.032157 seconds.
+  path: Assets/Scripts/TurretController.cs
+  artifactKey: Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TurretController.cs using Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2508b4687ad4388cd39e73da25ac9400') in 0.00054818419659 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7267 unused Assets / (4.5 MB). Loaded Objects now: 8113.
+Memory consumption went from 151.9 MB to 147.4 MB.
+Total: 11.355284 ms (FindLiveObjects: 1.131778 ms CreateObjectMapping: 0.988743 ms MarkObjects: 6.686185 ms  DeleteObjects: 2.541384 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 3.723732 seconds.
+  path: Assets/Scripts/Firepower/TurretController.cs
+  artifactKey: Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/TurretController.cs using Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0018acc09bbae643829674e7d940eb9') in 0.00059553658356 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.480468 seconds.
+  path: Assets/Scripts/Firepower/Bullet.cs
+  artifactKey: Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/Bullet.cs using Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'dfc136036a94fdb579af3daf9f885f0c') in 0.06934533578988 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7268 unused Assets / (4.6 MB). Loaded Objects now: 8114.
+Memory consumption went from 151.9 MB to 147.3 MB.
+Total: 12.379017 ms (FindLiveObjects: 1.217543 ms CreateObjectMapping: 1.004876 ms MarkObjects: 7.179055 ms  DeleteObjects: 2.969931 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 13.142399 seconds.
+  path: Assets/Scripts/Firepower/HitscanWeapon.cs
+  artifactKey: Guid(778984a7e57af6448b26273648623cca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/HitscanWeapon.cs using Guid(778984a7e57af6448b26273648623cca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f4c54274e6bfd667ac1cd043900ab4bd') in 0.00065252706699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.499143 seconds.
+  path: Assets/Scripts/Firepower/HitscanWeapon.cs
+  artifactKey: Guid(778984a7e57af6448b26273648623cca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/HitscanWeapon.cs using Guid(778984a7e57af6448b26273648623cca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7aa950c94cd830c737e7081339b5b88f') in 0.00974544250736 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.69 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7268 unused Assets / (5.2 MB). Loaded Objects now: 8114.
+Memory consumption went from 151.9 MB to 146.8 MB.
+Total: 15.558402 ms (FindLiveObjects: 1.212794 ms CreateObjectMapping: 1.335365 ms MarkObjects: 8.526223 ms  DeleteObjects: 4.476756 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 33.945305 seconds.
+  path: Assets/Scripts/Firepower/HitscanWeapon.cs
+  artifactKey: Guid(778984a7e57af6448b26273648623cca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/HitscanWeapon.cs using Guid(778984a7e57af6448b26273648623cca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ad49a5667db7150464107279a979f027') in 0.01047926482276 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.85 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7269 unused Assets / (4.6 MB). Loaded Objects now: 8115.
+Memory consumption went from 151.9 MB to 147.3 MB.
+Total: 15.292656 ms (FindLiveObjects: 1.258540 ms CreateObjectMapping: 1.356387 ms MarkObjects: 9.144458 ms  DeleteObjects: 3.526146 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 6.688782 seconds.
+  path: Assets/Scripts/Firepower/RifleWeapon.cs
+  artifactKey: Guid(6234c7c5f9cfc0b4ba2231b06cb559ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/RifleWeapon.cs using Guid(6234c7c5f9cfc0b4ba2231b06cb559ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9c2fc5bfd99fb3bd0004a187276d6048') in 0.01568488453141 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.01 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7269 unused Assets / (4.7 MB). Loaded Objects now: 8115.
+Memory consumption went from 151.9 MB to 147.3 MB.
+Total: 13.651735 ms (FindLiveObjects: 1.161740 ms CreateObjectMapping: 0.960178 ms MarkObjects: 8.155157 ms  DeleteObjects: 3.368096 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.112160 seconds.
+  path: Assets/Scripts/Firepower/RifleWeapon.cs
+  artifactKey: Guid(6234c7c5f9cfc0b4ba2231b06cb559ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/RifleWeapon.cs using Guid(6234c7c5f9cfc0b4ba2231b06cb559ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1023352fd18af9344fd487967a7633f7') in 0.01470068123183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.37 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7270 unused Assets / (4.6 MB). Loaded Objects now: 8116.
+Memory consumption went from 151.9 MB to 147.3 MB.
+Total: 13.926141 ms (FindLiveObjects: 0.935105 ms CreateObjectMapping: 0.908356 ms MarkObjects: 8.857969 ms  DeleteObjects: 3.217588 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 10.210592 seconds.
+  path: Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs
+  artifactKey: Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs using Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '492621e9915db46fca417bc01469e6dc') in 0.0004992953015 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.504338 seconds.
+  path: Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs
+  artifactKey: Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs using Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f253a74dc64ab0e69348d8ac17be177a') in 0.00925885831859 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.09 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7270 unused Assets / (4.5 MB). Loaded Objects now: 8116.
+Memory consumption went from 151.9 MB to 147.4 MB.
+Total: 15.296148 ms (FindLiveObjects: 1.245968 ms CreateObjectMapping: 0.867918 ms MarkObjects: 9.438700 ms  DeleteObjects: 3.736508 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 39.234615 seconds.
+  path: Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs
+  artifactKey: Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ShotgunWeaponHitscan.cs using Guid(2c7f1ef225cb44942b69e687ee48c96f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '50b745de61a910299da3e3555ebec391') in 0.01155887130906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.02 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7271 unused Assets / (4.5 MB). Loaded Objects now: 8117.
+Memory consumption went from 151.9 MB to 147.4 MB.
+Total: 13.977126 ms (FindLiveObjects: 1.283264 ms CreateObjectMapping: 0.904375 ms MarkObjects: 8.393106 ms  DeleteObjects: 3.388699 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.476134 seconds.
+  path: Assets/Scripts/Firepower/ProjectileWeapon.cs
+  artifactKey: Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/ProjectileWeapon.cs using Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0bd4378c62b978fc96c211292741033f') in 0.00060880642652 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.479947 seconds.
+  path: Assets/Scripts/Firepower/ProjectileWeapon.cs
+  artifactKey: Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ProjectileWeapon.cs using Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1feb8caedcd5dad9665eef3e3978f7d3') in 0.01015911240116 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.83 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7271 unused Assets / (4.3 MB). Loaded Objects now: 8117.
+Memory consumption went from 151.9 MB to 147.6 MB.
+Total: 13.605919 ms (FindLiveObjects: 1.156083 ms CreateObjectMapping: 1.237518 ms MarkObjects: 8.148871 ms  DeleteObjects: 3.056324 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 66.505907 seconds.
+  path: Assets/Scripts/Firepower/ProjectileWeapon.cs
+  artifactKey: Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ProjectileWeapon.cs using Guid(b93fbaeff1dc14f48970ed8a9cfd27f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c58b461f6d4feb622957e6748de1f63e') in 0.01115532840068 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.60 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7272 unused Assets / (4.5 MB). Loaded Objects now: 8118.
+Memory consumption went from 151.9 MB to 147.4 MB.
+Total: 9.992541 ms (FindLiveObjects: 0.701486 ms CreateObjectMapping: 0.457670 ms MarkObjects: 6.779633 ms  DeleteObjects: 2.046629 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.735790 seconds.
+  path: Assets/Scripts/Firepower/CannonWeaponImproved.cs
+  artifactKey: Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/CannonWeaponImproved.cs using Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '928820db7a8d8bfe082eb71969c47356') in 0.00066440008437 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.169812 seconds.
+  path: Assets/Scripts/Firepower/CannonWeaponImproved.cs
+  artifactKey: Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/CannonWeaponImproved.cs using Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '85eb42dc63fa898fff4dd8521df42345') in 0.01078789343338 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.91 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7272 unused Assets / (4.2 MB). Loaded Objects now: 8118.
+Memory consumption went from 151.9 MB to 147.7 MB.
+Total: 16.691158 ms (FindLiveObjects: 1.266572 ms CreateObjectMapping: 1.359810 ms MarkObjects: 11.528421 ms  DeleteObjects: 2.529651 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 24.824253 seconds.
+  path: Assets/Scripts/Firepower/CannonWeaponImproved.cs
+  artifactKey: Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/CannonWeaponImproved.cs using Guid(b49777aaa53e4b34e8472bb9f7f23fbf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f0718c90e82ce0fed718674fde7df163') in 0.01038560766801 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.86 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7273 unused Assets / (3.9 MB). Loaded Objects now: 8119.
+Memory consumption went from 152.0 MB to 148.0 MB.
+Total: 15.589831 ms (FindLiveObjects: 1.422527 ms CreateObjectMapping: 1.002572 ms MarkObjects: 9.881773 ms  DeleteObjects: 3.274788 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.896716 seconds.
+  path: Assets/Scripts/Firepower/CannonShell.cs
+  artifactKey: Guid(67a25db9f88c1e94abed13c5d80da57c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/CannonShell.cs using Guid(67a25db9f88c1e94abed13c5d80da57c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f45a6419f0cd872d487c115add7bf652') in 0.00947781072734 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.01 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7273 unused Assets / (5.5 MB). Loaded Objects now: 8119.
+Memory consumption went from 152.0 MB to 146.4 MB.
+Total: 14.110453 ms (FindLiveObjects: 1.137156 ms CreateObjectMapping: 0.974775 ms MarkObjects: 8.849169 ms  DeleteObjects: 3.141251 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 30.945931 seconds.
+  path: Assets/Scripts/Firepower/CannonShell.cs
+  artifactKey: Guid(67a25db9f88c1e94abed13c5d80da57c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/CannonShell.cs using Guid(67a25db9f88c1e94abed13c5d80da57c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'deae5a58f38f2084471128903bcd55b9') in 0.01162123957095 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.13 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7274 unused Assets / (5.0 MB). Loaded Objects now: 8120.
+Memory consumption went from 152.0 MB to 147.0 MB.
+Total: 11.330700 ms (FindLiveObjects: 0.994191 ms CreateObjectMapping: 0.707492 ms MarkObjects: 6.434407 ms  DeleteObjects: 3.188534 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.880158 seconds.
+  path: Assets/Scripts/Firepower/RocketWeaponImproved.cs
+  artifactKey: Guid(9f2e83ba83d9a9049a0268a77c5e3413) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/RocketWeaponImproved.cs using Guid(9f2e83ba83d9a9049a0268a77c5e3413) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9216d12cfaf0be31918f092cab2f3058') in 0.01027253463778 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.97 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7274 unused Assets / (4.9 MB). Loaded Objects now: 8120.
+Memory consumption went from 152.0 MB to 147.1 MB.
+Total: 14.473557 ms (FindLiveObjects: 1.149657 ms CreateObjectMapping: 0.986019 ms MarkObjects: 9.088795 ms  DeleteObjects: 3.242381 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 10.508879 seconds.
+  path: Assets/Scripts/Firepower/RocketWeaponImproved.cs
+  artifactKey: Guid(9f2e83ba83d9a9049a0268a77c5e3413) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/RocketWeaponImproved.cs using Guid(9f2e83ba83d9a9049a0268a77c5e3413) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'eda51deddf5325b5ebe806e4bdf203c6') in 0.01091772837051 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.71 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7275 unused Assets / (5.4 MB). Loaded Objects now: 8121.
+Memory consumption went from 152.0 MB to 146.6 MB.
+Total: 16.469691 ms (FindLiveObjects: 0.754356 ms CreateObjectMapping: 0.515778 ms MarkObjects: 11.863309 ms  DeleteObjects: 3.330451 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.138655 seconds.
+  path: Assets/Scripts/Firepower/Rocket.cs
+  artifactKey: Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/Rocket.cs using Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'acebe8ca3ddf527db0f02266c33dc041') in 0.0110358299728 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.61 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7275 unused Assets / (4.7 MB). Loaded Objects now: 8121.
+Memory consumption went from 152.0 MB to 147.2 MB.
+Total: 10.804166 ms (FindLiveObjects: 1.119905 ms CreateObjectMapping: 0.860864 ms MarkObjects: 6.523036 ms  DeleteObjects: 2.292749 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 22.344115 seconds.
+  path: Assets/Scripts/Firepower/Rocket.cs
+  artifactKey: Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/Rocket.cs using Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba0332070b9cc5c12dd78b0d6c9dade3') in 0.00056676197673 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.274019 seconds.
+  path: Assets/Scripts/Firepower/Rocket.cs
+  artifactKey: Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/Rocket.cs using Guid(ef9dfae3085940e4494e628bf3f0fb7a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0e2e1910cb390e26a02be370975ad89b') in 0.01039580449471 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.91 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7276 unused Assets / (4.3 MB). Loaded Objects now: 8122.
+Memory consumption went from 152.0 MB to 147.7 MB.
+Total: 12.477563 ms (FindLiveObjects: 1.133384 ms CreateObjectMapping: 0.741156 ms MarkObjects: 7.933969 ms  DeleteObjects: 2.662419 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 10.526225 seconds.
+  path: Assets/Scripts/Firepower/LaserWeaponImproved.cs
+  artifactKey: Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/LaserWeaponImproved.cs using Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba3f0a07e84d8d8e29f99bc440e17e24') in 0.00074813977754 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011442 seconds.
+  path: Assets/Scripts/Firepower/LaserWeaponImproved.cs
+  artifactKey: Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/LaserWeaponImproved.cs using Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd94dc2aec88a3c275cd9e041d197ee5c') in 0.03055863245189 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.38 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7276 unused Assets / (3.0 MB). Loaded Objects now: 8122.
+Memory consumption went from 152.0 MB to 148.9 MB.
+Total: 11.625360 ms (FindLiveObjects: 1.183460 ms CreateObjectMapping: 0.959410 ms MarkObjects: 7.048941 ms  DeleteObjects: 2.425657 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 18.670621 seconds.
+  path: Assets/Scripts/Firepower/LaserWeaponImproved.cs
+  artifactKey: Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/LaserWeaponImproved.cs using Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '16936ef736cc0ec50570baf3c3e876c0') in 0.00053854610013 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.698034 seconds.
+  path: Assets/Scripts/Firepower/LaserWeaponImproved.cs
+  artifactKey: Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/LaserWeaponImproved.cs using Guid(b07fde8906add5a4bb3fcc748ba14680) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '96415778db9476bca504a3c6806ac9fc') in 0.01274770955526 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.53 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7277 unused Assets / (4.4 MB). Loaded Objects now: 8123.
+Memory consumption went from 152.0 MB to 147.6 MB.
+Total: 14.987659 ms (FindLiveObjects: 1.264756 ms CreateObjectMapping: 1.373918 ms MarkObjects: 8.773531 ms  DeleteObjects: 3.567842 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.066690 seconds.
+  path: Assets/Scripts/Firepower/FlamethrowerWeapon.cs
+  artifactKey: Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/FlamethrowerWeapon.cs using Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '964dc9d844143f646bc33b8d280a3ffa') in 0.01370949380438 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.76 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7277 unused Assets / (4.8 MB). Loaded Objects now: 8123.
+Memory consumption went from 152.0 MB to 147.2 MB.
+Total: 13.092865 ms (FindLiveObjects: 1.113200 ms CreateObjectMapping: 0.796051 ms MarkObjects: 8.115626 ms  DeleteObjects: 3.061842 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 19.098290 seconds.
+  path: Assets/Scripts/Firepower/FlamethrowerWeapon.cs
+  artifactKey: Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/FlamethrowerWeapon.cs using Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '498c5be5d6c5efd75744ae74a0b761d2') in 0.01383010969271 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.70 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7278 unused Assets / (4.1 MB). Loaded Objects now: 8124.
+Memory consumption went from 152.0 MB to 147.9 MB.
+Total: 17.543361 ms (FindLiveObjects: 1.385511 ms CreateObjectMapping: 1.338019 ms MarkObjects: 11.000630 ms  DeleteObjects: 3.810610 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.298977 seconds.
+  path: Assets/Scripts/Firepower/DamageOverTimeComponent.cs
+  artifactKey: Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/DamageOverTimeComponent.cs using Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cf5024d873e8a12290e6338542d63d3b') in 0.00064344770076 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.438136 seconds.
+  path: Assets/Scripts/Firepower/DamageOverTimeComponent.cs
+  artifactKey: Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/DamageOverTimeComponent.cs using Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '68a17b8cf7138b2886b77f5dd103236a') in 0.00959067423374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.59 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7278 unused Assets / (5.4 MB). Loaded Objects now: 8124.
+Memory consumption went from 152.0 MB to 146.6 MB.
+Total: 15.592485 ms (FindLiveObjects: 1.006483 ms CreateObjectMapping: 0.926584 ms MarkObjects: 9.933874 ms  DeleteObjects: 3.718420 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 21.447026 seconds.
+  path: Assets/Scripts/Firepower/DamageOverTimeComponent.cs
+  artifactKey: Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/DamageOverTimeComponent.cs using Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e9519c4b9a8c8c5fa2cbb26f0106fc0') in 0.00060273023527 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.338162 seconds.
+  path: Assets/Scripts/Firepower/DamageOverTimeComponent.cs
+  artifactKey: Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/DamageOverTimeComponent.cs using Guid(e6c490587ff0b6b44b3273e768482e7f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '55f9afa7e17181268cb3e146bdbbe1be') in 0.00880426143546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.91 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7279 unused Assets / (4.9 MB). Loaded Objects now: 8125.
+Memory consumption went from 152.0 MB to 147.1 MB.
+Total: 13.388503 ms (FindLiveObjects: 0.815118 ms CreateObjectMapping: 0.661606 ms MarkObjects: 8.586985 ms  DeleteObjects: 3.319137 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 5.061550 seconds.
+  path: Assets/Scripts/ModuleSwapper.cs
+  artifactKey: Guid(9b2b2313aeb64844a815d25d922034db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ModuleSwapper.cs using Guid(9b2b2313aeb64844a815d25d922034db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c7cef327d86890f05855fc0d9dcb6087') in 0.00068730802379 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.485458 seconds.
+  path: Assets/Scripts/ModuleSwapper.cs
+  artifactKey: Guid(9b2b2313aeb64844a815d25d922034db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/ModuleSwapper.cs using Guid(9b2b2313aeb64844a815d25d922034db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fb09900a18900451c8ecce649e1aedba') in 0.00999142349097 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.72 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7279 unused Assets / (4.4 MB). Loaded Objects now: 8125.
+Memory consumption went from 152.0 MB to 147.6 MB.
+Total: 11.103576 ms (FindLiveObjects: 0.736406 ms CreateObjectMapping: 0.493638 ms MarkObjects: 7.700560 ms  DeleteObjects: 2.166337 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 36.894430 seconds.
+  path: Assets/Scripts/ModuleSwapper.cs
+  artifactKey: Guid(9b2b2313aeb64844a815d25d922034db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ModuleSwapper.cs using Guid(9b2b2313aeb64844a815d25d922034db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3da44f3f0f91aa2a2d86399bca0e0e4b') in 0.00046751751968 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.308832 seconds.
+  path: Assets/Scripts/ModuleSwapper.cs
+  artifactKey: Guid(9b2b2313aeb64844a815d25d922034db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/ModuleSwapper.cs using Guid(9b2b2313aeb64844a815d25d922034db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '06c8f8412540e21d2a08b2ac46534fda') in 0.00990991871872 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 181.632563 seconds.
+  path: Assets/Scripts/Health.cs
+  artifactKey: Guid(dc0970a537a809845a3e5b3567dae9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Health.cs using Guid(dc0970a537a809845a3e5b3567dae9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59344ccd23b4c4a454e9aae1eecbad06') in 0.00059365086904 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.516433 seconds.
+  path: Assets/Scripts/Firepower/TurretController.cs
+  artifactKey: Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/TurretController.cs using Guid(3f1dbc0d24b59a844bc11a3c3e289bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0018acc09bbae643829674e7d940eb9') in 0.00065951119486 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.019500 seconds.
   path: Assets/Prefabs/Enemy.prefab
-  artifactKey: Guid(1376e8409cc109e4c9ca0cbe44b52f08) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Prefabs/Enemy.prefab using Guid(1376e8409cc109e4c9ca0cbe44b52f08) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6ee568b6ed2748a83363db8b77ffd33b') in 0.10576169596974 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+  artifactKey: Guid(1376e8409cc109e4c9ca0cbe44b52f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy.prefab using Guid(1376e8409cc109e4c9ca0cbe44b52f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bb188bac2f5f032bdf3d64b8880df2e8') in 0.00050201911137 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 182.295566 seconds.
-  path: Assets/Settings/UniversalRP.asset
-  artifactKey: Guid(681886c5eb7344803b6206f758bf0b1c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Settings/UniversalRP.asset using Guid(681886c5eb7344803b6206f758bf0b1c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '680a30feb6c8b4a16c091a4c947f0a7a') in 0.06195263643843 seconds
-Number of updated asset objects reloaded before import = 2Number of asset objects unloaded after import = 1
+  Time since last request: 62.400017 seconds.
+  path: Assets/UniversalRenderPipelineGlobalSettings.asset
+  artifactKey: Guid(93b439a37f63240aca3dd4e01d978a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(93b439a37f63240aca3dd4e01d978a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '157e410dfc238eda31ea4d7f77df6a15') in 0.02319331088169 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 321.612451 seconds.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(0ea5e0ba480ae864a954d2380252454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(0ea5e0ba480ae864a954d2380252454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd2954f2a0da2a91b52ec3ac1ad0fe247') in 0.0007200635835 seconds
+  Time since last request: 2.912575 seconds.
+  path: Assets/Prefabs/Cannon.prefab
+  artifactKey: Guid(bdd8e3de91171944bb8e87ed22940390) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cannon.prefab using Guid(bdd8e3de91171944bb8e87ed22940390) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22b095222b7bbd791e1454548542e2c8') in 0.02687303833308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.896790 seconds.
+  path: Assets/Prefabs/Cannon.prefab
+  artifactKey: Guid(bdd8e3de91171944bb8e87ed22940390) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Prefabs/Cannon.prefab using Guid(bdd8e3de91171944bb8e87ed22940390) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '90aaebd2500a600fc36a7aac68b22388') in 0.03482837902583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.97 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7280 unused Assets / (3.6 MB). Loaded Objects now: 8127.
+Memory consumption went from 152.0 MB to 148.4 MB.
+Total: 58.352388 ms (FindLiveObjects: 3.379829 ms CreateObjectMapping: 2.190642 ms MarkObjects: 48.193974 ms  DeleteObjects: 4.580331 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 197.860754 seconds.
+  path: Assets/Scripts/NewEmptyCSharpScript.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/NewEmptyCSharpScript.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3e05b4dcac6d7ed6308b2b0fa2acea55') in 0.01241826824359 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.821021 seconds.
+  path: Assets/Scripts/NewEmptyCSharpScript.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/NewEmptyCSharpScript.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c71aeeb760d0bab3334ce54ff0237962') in 0.00043518100764 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.30 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7280 unused Assets / (3.8 MB). Loaded Objects now: 8127.
+Memory consumption went from 152.0 MB to 148.2 MB.
+Total: 14.336738 ms (FindLiveObjects: 1.221454 ms CreateObjectMapping: 0.783479 ms MarkObjects: 10.188795 ms  DeleteObjects: 2.135956 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.371168 seconds.
+  path: Assets/Scripts/ModuleManager.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ModuleManager.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5b6dad4249c87c98eabf5e2260afbf40') in 0.00065678738499 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.509471 seconds.
+  path: Assets/Scripts/ModuleManager.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/ModuleManager.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3faed5ccdbdb9748d18e41504420019b') in 0.01116349983029 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.46 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7280 unused Assets / (4.8 MB). Loaded Objects now: 8127.
+Memory consumption went from 152.0 MB to 147.2 MB.
+Total: 14.958046 ms (FindLiveObjects: 1.284521 ms CreateObjectMapping: 1.120394 ms MarkObjects: 9.073779 ms  DeleteObjects: 3.471391 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 31.017274 seconds.
+  path: Assets/Scripts/ModuleManager.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ModuleManager.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ea55ea499c4c7082e96175306cfe84e') in 0.00059029848766 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.141895 seconds.
+  path: Assets/Scripts/ModuleManager.cs
+  artifactKey: Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/ModuleManager.cs using Guid(94210b792c3e41646abea7e4f060f1da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8ce0033cffbe9bedf50bf94a4d1c4d56') in 0.00878428682975 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 87.977705 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(81144d0ea581886489d539b693abe8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(81144d0ea581886489d539b693abe8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30634483fa606f5a34dfe38939826f3d') in 0.00044006989715 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.904537 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(81144d0ea581886489d539b693abe8e2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources using Guid(81144d0ea581886489d539b693abe8e2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a7bc197650c2302dff86d9f3b25d5845') in 0.01005756318191 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.276587 seconds.
+  path: Assets/Resources/ChassisStats.asset
+  artifactKey: Guid(a5269b0c51c928045b3cf698127df9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ChassisStats.asset using Guid(a5269b0c51c928045b3cf698127df9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e38ceb71e1e78a6b355316eb06286800') in 0.00126447635104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.989436 seconds.
+  path: Assets/Resources/ChassisStats.asset
+  artifactKey: Guid(a5269b0c51c928045b3cf698127df9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/ChassisStats.asset using Guid(a5269b0c51c928045b3cf698127df9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '100ab93fb53d7885530ba0f52a263cea') in 0.01125541095307 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.383098 seconds.
+  path: Assets/Resources/ChassisStats 1.asset
+  artifactKey: Guid(821212c1c9e614741a47203b8f3eabb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ChassisStats 1.asset using Guid(821212c1c9e614741a47203b8f3eabb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d8c9dda17dd35610529e191f5a59e68') in 0.00117857157823 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.409650 seconds.
+  path: Assets/Resources/ChassisStats 2.asset
+  artifactKey: Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ChassisStats 2.asset using Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '19f3e4c82dd535626c6f1fba91bcfe9e') in 0.00111375887159 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.905092 seconds.
+  path: Assets/Resources/ChassisStats 1.asset
+  artifactKey: Guid(821212c1c9e614741a47203b8f3eabb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/ChassisStats 1.asset using Guid(821212c1c9e614741a47203b8f3eabb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a1b16e79bba6ad0f7b8be60da08e080e') in 0.00989441395485 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.373182 seconds.
+  path: Assets/Resources/LightChassis.asset
+  artifactKey: Guid(a5269b0c51c928045b3cf698127df9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/LightChassis.asset using Guid(a5269b0c51c928045b3cf698127df9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fc7444c2ffa38ec6095de879e666f50f') in 0.00093489535681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.939351 seconds.
+  path: Assets/Resources/LightChassis.asset
+  artifactKey: Guid(a5269b0c51c928045b3cf698127df9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/LightChassis.asset using Guid(a5269b0c51c928045b3cf698127df9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '97757364f4acad2cc9d26f3fb6214ec8') in 0.01019906161258 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.864153 seconds.
+  path: Assets/Resources/MediumChassis.asset
+  artifactKey: Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MediumChassis.asset using Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6fbeeba8de181b85b42972b00f547b66') in 0.00103078743248 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.972052 seconds.
+  path: Assets/Resources/MediumChassis.asset
+  artifactKey: Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/MediumChassis.asset using Guid(b27a6f13a18b95e4c8a431f279c51c91) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a0676c263ef39b119dc453171f750edd') in 0.01036144258558 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.597110 seconds.
+  path: Assets/Resources/HeavyChassis.asset
+  artifactKey: Guid(821212c1c9e614741a47203b8f3eabb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/HeavyChassis.asset using Guid(821212c1c9e614741a47203b8f3eabb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd33d7fcb9c896f3c10bc0730c2ab94f6') in 0.00102638743192 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.929444 seconds.
+  path: Assets/Resources/HeavyChassis.asset
+  artifactKey: Guid(821212c1c9e614741a47203b8f3eabb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/HeavyChassis.asset using Guid(821212c1c9e614741a47203b8f3eabb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '845062b32f1fd2ea5567de690133e7f3') in 0.01021184256658 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 237.896739 seconds.
+  path: Assets/Scripts/Movement/PlayerMovement.cs
+  artifactKey: Guid(b7552ed7b91151045ab530040b587873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Movement/PlayerMovement.cs using Guid(b7552ed7b91151045ab530040b587873) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d97605eec6f55fd269a7a35f11276b5') in 0.00065469214663 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 3.03 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7281 unused Assets / (3.5 MB). Loaded Objects now: 8128.
+Memory consumption went from 152.0 MB to 148.5 MB.
+Total: 21.504479 ms (FindLiveObjects: 1.173822 ms CreateObjectMapping: 1.800438 ms MarkObjects: 14.732040 ms  DeleteObjects: 3.791543 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1558.768199 seconds.
+  path: Assets/Scripts/HealthSystem.cs
+  artifactKey: Guid(2632324af2806ad48a13707ab4b825f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/HealthSystem.cs using Guid(2632324af2806ad48a13707ab4b825f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0547197955ac11e652b1624dc0071d77') in 0.00118290173751 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7281 unused Assets / (2.3 MB). Loaded Objects now: 8128.
+Memory consumption went from 152.0 MB to 149.7 MB.
+Total: 13.746999 ms (FindLiveObjects: 0.863448 ms CreateObjectMapping: 1.019194 ms MarkObjects: 8.965944 ms  DeleteObjects: 2.891708 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 23.378386 seconds.
+  path: Assets/Scripts/HealthSystem.cs
+  artifactKey: Guid(2632324af2806ad48a13707ab4b825f0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/HealthSystem.cs using Guid(2632324af2806ad48a13707ab4b825f0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fdb5e8e78cddb6ecad558f88a7bef7e5') in 0.01179437610087 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.16 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7281 unused Assets / (4.6 MB). Loaded Objects now: 8128.
+Memory consumption went from 152.0 MB to 147.4 MB.
+Total: 14.945335 ms (FindLiveObjects: 1.175219 ms CreateObjectMapping: 1.029670 ms MarkObjects: 9.585296 ms  DeleteObjects: 3.147956 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 23.700044 seconds.
+  path: Assets/Scripts/Movement/ChassisStats.cs
+  artifactKey: Guid(32f33430e341a8244800c076a502e010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Movement/ChassisStats.cs using Guid(32f33430e341a8244800c076a502e010) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4dbdbf8b2ca705d60d0fa2b75d1e7572') in 0.00055132705414 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/Scripts/Movement/ChassisStats.cs
+  artifactKey: Guid(32f33430e341a8244800c076a502e010) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Movement/ChassisStats.cs using Guid(32f33430e341a8244800c076a502e010) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '10453fd1e4d004e338f53bea711771b2') in 0.01148588717281 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.40 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7281 unused Assets / (4.5 MB). Loaded Objects now: 8128.
+Memory consumption went from 152.0 MB to 147.5 MB.
+Total: 16.560275 ms (FindLiveObjects: 1.393683 ms CreateObjectMapping: 1.605441 ms MarkObjects: 10.095208 ms  DeleteObjects: 3.458331 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 13.852760 seconds.
+  path: Assets/Scripts/Movement/ChassisController.cs
+  artifactKey: Guid(047a7d310d53e2b4e985bad467197450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Movement/ChassisController.cs using Guid(047a7d310d53e2b4e985bad467197450) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a43710966eaab0fbef4ca6238a512265') in 0.00076126993794 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.076669 seconds.
+  path: Assets/Scripts/Movement/ChassisController.cs
+  artifactKey: Guid(047a7d310d53e2b4e985bad467197450) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Movement/ChassisController.cs using Guid(047a7d310d53e2b4e985bad467197450) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4a94ca8b0341605b62a843f5b49f59d0') in 0.01016826160867 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7282 unused Assets / (4.1 MB). Loaded Objects now: 8129.
+Memory consumption went from 152.0 MB to 147.9 MB.
+Total: 16.432396 ms (FindLiveObjects: 1.057886 ms CreateObjectMapping: 1.781930 ms MarkObjects: 10.700173 ms  DeleteObjects: 2.885632 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 68.820388 seconds.
+  path: Assets/Scripts/Firepower/ProjectileBase.cs
+  artifactKey: Guid(c1528982a2086dd4e94c0ea202661e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/ProjectileBase.cs using Guid(c1528982a2086dd4e94c0ea202661e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2bcbe4f8182dbd89dbba43c1aaea1640') in 0.00074702231708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.145456 seconds.
+  path: Assets/Scripts/Firepower/ProjectileBase.cs
+  artifactKey: Guid(c1528982a2086dd4e94c0ea202661e71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ProjectileBase.cs using Guid(c1528982a2086dd4e94c0ea202661e71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '486df4962c669d1b59e993ff6bb68645') in 0.01442697326057 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.00 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7282 unused Assets / (4.5 MB). Loaded Objects now: 8129.
+Memory consumption went from 152.0 MB to 147.5 MB.
+Total: 16.242288 ms (FindLiveObjects: 1.182692 ms CreateObjectMapping: 1.348845 ms MarkObjects: 10.468928 ms  DeleteObjects: 3.235677 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 15.546305 seconds.
+  path: Assets/Scripts/Firepower/ProjectileBase.cs
+  artifactKey: Guid(c1528982a2086dd4e94c0ea202661e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/ProjectileBase.cs using Guid(c1528982a2086dd4e94c0ea202661e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7b89a0a8024de2a8acaf53d1d0f9c90a') in 0.00061236833173 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.065724 seconds.
+  path: Assets/Scripts/Firepower/ProjectileBase.cs
+  artifactKey: Guid(c1528982a2086dd4e94c0ea202661e71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/ProjectileBase.cs using Guid(c1528982a2086dd4e94c0ea202661e71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'eaaea5aefae98f5a8b9dcdc60bcd4c97') in 0.01500281460353 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.12 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7282 unused Assets / (4.5 MB). Loaded Objects now: 8129.
+Memory consumption went from 152.0 MB to 147.5 MB.
+Total: 17.208402 ms (FindLiveObjects: 1.188210 ms CreateObjectMapping: 1.130730 ms MarkObjects: 11.958992 ms  DeleteObjects: 2.923905 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 15.088079 seconds.
+  path: Assets/Scripts/Firepower/Bullet.cs
+  artifactKey: Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/Bullet.cs using Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7d4b377f73e6b8324d6e4414558b90a5') in 0.00065071119374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Scripts/Firepower/Bullet.cs
+  artifactKey: Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/Bullet.cs using Guid(f6c90fa3dc672494d956cb0c9fcb19a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9dcd44cc467faac0c4b3f370ac1ac305') in 0.01053758229049 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.807201 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(47070871f23934249a07ad65db92b669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Enemy.cs using Guid(47070871f23934249a07ad65db92b669) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9a4fcafc56cf5d186f7607a5f60d0c06') in 0.00060775880733 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 1.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7282 unused Assets / (5.5 MB). Loaded Objects now: 8129.
+Memory consumption went from 152.0 MB to 146.5 MB.
+Total: 14.864529 ms (FindLiveObjects: 1.111314 ms CreateObjectMapping: 1.005854 ms MarkObjects: 9.077550 ms  DeleteObjects: 3.662267 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.316472 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(47070871f23934249a07ad65db92b669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Enemy.cs using Guid(47070871f23934249a07ad65db92b669) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10bda920bf8038c865cf637fb231719e') in 0.00144187319897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.149304 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(47070871f23934249a07ad65db92b669) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Enemy.cs using Guid(47070871f23934249a07ad65db92b669) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '84c2c2424e2b44d9645dafa94778fda7') in 0.01415759544858 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.44 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7282 unused Assets / (4.6 MB). Loaded Objects now: 8129.
+Memory consumption went from 152.0 MB to 147.4 MB.
+Total: 15.665678 ms (FindLiveObjects: 1.208673 ms CreateObjectMapping: 1.187721 ms MarkObjects: 9.973614 ms  DeleteObjects: 3.289524 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 51.525806 seconds.
+  path: Assets/Scripts/Firepower/FlamethrowerWeapon.cs
+  artifactKey: Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Firepower/FlamethrowerWeapon.cs using Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf768e005d8405a7353a73477339c681') in 0.00071014612192 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.128486 seconds.
+  path: Assets/Scripts/Firepower/FlamethrowerWeapon.cs
+  artifactKey: Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Firepower/FlamethrowerWeapon.cs using Guid(0c94492f9b87a604bb0e5d00d386466e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '97f9f39d2a75332a12588026afb2da07') in 0.0126557285912 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.419552 seconds.
+  path: Assets/Scripts/Movement/ChassisController.cs
+  artifactKey: Guid(047a7d310d53e2b4e985bad467197450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Movement/ChassisController.cs using Guid(047a7d310d53e2b4e985bad467197450) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a43710966eaab0fbef4ca6238a512265') in 0.00060796833117 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.621301 seconds.
+  path: Assets/Scripts/Movement/PlayerMovement.cs
+  artifactKey: Guid(b7552ed7b91151045ab530040b587873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Movement/PlayerMovement.cs using Guid(b7552ed7b91151045ab530040b587873) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d97605eec6f55fd269a7a35f11276b5') in 0.00052311117754 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
