@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df3e3d60880a2445a5e8888cd5c78ee, type: 3}
+  m_Name: MachineGunConfig
+  m_EditorClassIdentifier: Assembly-CSharp::TurretConfig
+  turretRotationSpeed: 360
+  weaponType: 0
+  fireRate: 0.1
+  bulletSpeed: 20
+  bulletsPerShot: 1
+  bulletDamage: 5
+  splashRadius: 0
+  baseSpreadAngle: 1
+  maxSpreadAngle: 5
+  bulletsUntilMaxSpread: 50
+  movementSpreadMultiplier: 1.5
+  accuracyRecoveryRate: 25
+  turretSprite: {fileID: 21300000, guid: 175673e2c2e70c74a901e9ad4cab8a44, type: 3}
+  barrelSprite: {fileID: 21300000, guid: 6c55d1b41192f50409d83ab5e5953d29, type: 3}
+  turretScale: {x: 1, y: 1, z: 1}
+  turretColor: {r: 1, g: 1, b: 1, a: 1}
