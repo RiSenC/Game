@@ -27,6 +27,8 @@ public class RocketWeaponImproved : ProjectileWeapon
     protected override void FireProjectile(Transform firePoint, float spreadMultiplier)
     {
         GameObject proj = SpawnProjectile(firePoint, spreadMultiplier);
+        if (proj == null)
+            return;
         
         if (proj.TryGetComponent<Rocket>(out var rocket))
         {
@@ -40,6 +42,6 @@ public class RocketWeaponImproved : ProjectileWeapon
     
     protected override bool CanFire(ChassisController chassis)
     {
-        return chassis != null && chassis.TryConsumeEnergy(energyCost);
+        return true;
     }
 }

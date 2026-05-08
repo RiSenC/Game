@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Jet/Hover propulsion.
@@ -14,27 +15,30 @@ public class JetLocomotion : LocomotionBase
     public float bodyRotationSpeed = 250f;
     
     private Vector2 thrustInput = Vector2.zero;
+    private float baseThrustForce;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        baseThrustForce = thrustForce;
+    }
     
     protected override void HandleInput()
     {
         // WASD for thrust (relative to body)
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        thrustInput = new Vector2(h, v).normalized;
+        thrustInput = ReadMoveInput().normalized;
         
         // Q/E for body rotation
-        float rotate = 0f;
-        if (Input.GetKey(KeyCode.Q)) rotate = -1f;
-        if (Input.GetKey(KeyCode.E)) rotate = 1f;
+        float rotate = ReadDigitalAxis(Key.Q, Key.E);
         
         if (rotate != 0f)
-            RotateToward(transform.eulerAngles.z + rotate * bodyRotationSpeed * Time.deltaTime);
+            RotateToward(movementRoot.eulerAngles.z + rotate * bodyRotationSpeed * Time.deltaTime);
     }
     
     protected override void ApplyMovement()
     {
         // Apply thrust relative to body orientation
-        Vector2 thrustDirection = (Vector2)transform.right * thrustInput.x + (Vector2)transform.up * thrustInput.y;
+        Vector2 thrustDirection = (Vector2)movementRoot.right * thrustInput.x + (Vector2)movementRoot.up * thrustInput.y;
         currentVelocity += thrustDirection * thrustForce * Time.deltaTime;
         
         // Apply friction (very minimal)
@@ -50,6 +54,6 @@ public class JetLocomotion : LocomotionBase
     public override void ApplyChassisModifiers(ChassisStats stats)
     {
         base.ApplyChassisModifiers(stats);
-        thrustForce *= stats.accelerationMultiplier;
+        thrustForce = baseThrustForce * stats.accelerationMultiplier;
     }
 }

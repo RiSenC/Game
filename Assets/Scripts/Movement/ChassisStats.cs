@@ -1,12 +1,5 @@
 using UnityEngine;
 
-public enum ChassisType
-{
-    Light,
-    Medium,
-    Heavy
-}
-
 [CreateAssetMenu(fileName = "ChassisStats", menuName = "ScriptableObjects/ChassisStats")]
 public class ChassisStats : ScriptableObject
 {
@@ -22,7 +15,4 @@ public class ChassisStats : ScriptableObject
     public float accelerationMultiplier = 1f;
     public float turningMultiplier = 1f;
     
-    [Header("Energy")]
-    public float maxEnergyModifier = 1f;
-    public float energyRegenModifier = 1f;
 }

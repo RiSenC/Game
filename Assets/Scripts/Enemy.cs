@@ -23,8 +23,8 @@ public class Enemy : MonoBehaviour
     private Color originalColor;
     private float flashTimer = 0f;
     private bool isFlashing = false;
-    
-    void Start()
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -37,6 +37,18 @@ public class Enemy : MonoBehaviour
             healthSystem.maxHP = maxHealth;
             healthSystem.currentHP = maxHealth;
         }
+        else
+        {
+            healthSystem.maxHP = maxHealth;
+            healthSystem.currentHP = maxHealth;
+        }
+        
+        if (healthSystem != null)
+            healthSystem.OnHealthChanged += HandleDamage;
+    }
+
+    void Start()
+    {
         
         if (spriteRenderer != null)
         {
@@ -46,11 +58,9 @@ public class Enemy : MonoBehaviour
         }
         
         // Find player
-        PlayerMovement playerMovement = Object.FindFirstObjectByType<PlayerMovement>();
-        if (playerMovement != null)
-        {
-            playerTransform = playerMovement.transform;
-        }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+            playerTransform = player.transform;
         
         if (rb == null)
         {
@@ -67,7 +77,16 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         if (playerTransform == null || healthSystem.IsDead)
+        {
+            if (playerTransform == null)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                    playerTransform = player.transform;
+            }
+
             return;
+        }
         
         // Get direction to player
         Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
@@ -105,17 +124,13 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    // Handle damage flash when taking damage
-    private void OnEnable()
-    {
-        if (healthSystem != null)
-            healthSystem.OnHealthChanged += HandleDamage;
-    }
-    
     private void OnDisable()
     {
         if (healthSystem != null)
+        {
             healthSystem.OnHealthChanged -= HandleDamage;
+            healthSystem.OnDeath -= Die;
+        }
     }
     
     private void HandleDamage(float current, float max)

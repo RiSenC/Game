@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: LightChassis
   m_EditorClassIdentifier: Assembly-CSharp::ChassisStats
   type: 0
-  maxHealthModifier: 1
-  armorFlatModifier: 1
-  armorPercentModifier: 1
-  speedMultiplier: 1
-  accelerationMultiplier: 1
-  turningMultiplier: 1
-  maxEnergyModifier: 1
-  energyRegenModifier: 1
+  maxHealthModifier: 0.7
+  armorFlatModifier: 0.8
+  armorPercentModifier: 0.8
+  speedMultiplier: 1.3
+  accelerationMultiplier: 1.2
+  turningMultiplier: 1.2

@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47070871f23934249a07ad65db92b669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 50
-  speed: 4
+  maxHealth: 20
+  speed: 3.25
   rotationSpeed: 180
   stopDistance: 2
   enemySprite: {fileID: 0}

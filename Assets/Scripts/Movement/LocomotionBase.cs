@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Abstract base for all locomotion types.
@@ -15,11 +16,28 @@ public abstract class LocomotionBase : MonoBehaviour
     protected Vector2 currentVelocity = Vector2.zero;
     protected Rigidbody2D rb;
     public ChassisController chassis;
+    protected PlayerInput playerInput;
+    protected InputAction moveAction;
+    protected Transform movementRoot;
+    protected float baseMaxSpeed;
+    protected float baseAcceleration;
+    protected float baseDeceleration;
+    protected float baseRotationSpeed;
     
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+            rb = GetComponentInParent<Rigidbody2D>();
+
         chassis = GetComponentInParent<ChassisController>();
+        playerInput = GetComponentInParent<PlayerInput>();
+        moveAction = playerInput != null ? playerInput.actions["Move"] : null;
+        movementRoot = chassis != null ? chassis.transform : transform;
+        baseMaxSpeed = maxSpeed;
+        baseAcceleration = acceleration;
+        baseDeceleration = deceleration;
+        baseRotationSpeed = rotationSpeed;
     }
     
     protected virtual void Update()
@@ -41,9 +59,10 @@ public abstract class LocomotionBase : MonoBehaviour
     /// <summary>Apply chassis modifiers to this locomotion</summary>
     public virtual void ApplyChassisModifiers(ChassisStats stats)
     {
-        maxSpeed *= stats.speedMultiplier;
-        acceleration *= stats.accelerationMultiplier;
-        rotationSpeed *= stats.turningMultiplier;
+        maxSpeed = baseMaxSpeed * stats.speedMultiplier;
+        acceleration = baseAcceleration * stats.accelerationMultiplier;
+        deceleration = baseDeceleration * stats.accelerationMultiplier;
+        rotationSpeed = baseRotationSpeed * stats.turningMultiplier;
     }
     
     /// <summary>Helper: accelerate toward target speed</summary>
@@ -56,8 +75,54 @@ public abstract class LocomotionBase : MonoBehaviour
     /// <summary>Helper: rotate toward target angle</summary>
     protected void RotateToward(float targetAngle)
     {
-        float current = transform.eulerAngles.z;
+        float current = movementRoot.eulerAngles.z;
         float newAngle = Mathf.MoveTowardsAngle(current, targetAngle, rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
+        movementRoot.rotation = Quaternion.Euler(0f, 0f, newAngle);
+    }
+
+    protected Vector2 ReadMoveInput()
+    {
+        if (moveAction != null)
+        {
+            Vector2 value = moveAction.ReadValue<Vector2>();
+            if (value.sqrMagnitude > 0f)
+                return value;
+        }
+
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null)
+            return Vector2.zero;
+
+        float x = 0f;
+        float y = 0f;
+        if (keyboard.aKey.isPressed) x -= 1f;
+        if (keyboard.dKey.isPressed) x += 1f;
+        if (keyboard.sKey.isPressed) y -= 1f;
+        if (keyboard.wKey.isPressed) y += 1f;
+        return new Vector2(x, y).normalized;
+    }
+
+    protected Vector3 ReadMouseWorldPosition(Camera camera)
+    {
+        if (camera == null || Mouse.current == null)
+            return movementRoot.position;
+
+        Vector3 mouseScreen = Mouse.current.position.ReadValue();
+        mouseScreen.z = Mathf.Abs(camera.transform.position.z);
+        return camera.ScreenToWorldPoint(mouseScreen);
+    }
+
+    protected float ReadDigitalAxis(Key negativeKey, Key positiveKey)
+    {
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null)
+            return 0f;
+
+        float value = 0f;
+        if (keyboard[negativeKey].isPressed)
+            value -= 1f;
+        if (keyboard[positiveKey].isPressed)
+            value += 1f;
+        return value;
     }
 }

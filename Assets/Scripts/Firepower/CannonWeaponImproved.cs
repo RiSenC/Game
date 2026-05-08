@@ -27,6 +27,8 @@ public class CannonWeaponImproved : ProjectileWeapon
     protected override void FireProjectile(Transform firePoint, float spreadMultiplier)
     {
         GameObject proj = SpawnProjectile(firePoint, spreadMultiplier);
+        if (proj == null)
+            return;
         
         if (proj.TryGetComponent<CannonShell>(out var shell))
         {

@@ -48,6 +48,6 @@ public class FlamethrowerWeapon : WeaponBase
     
     protected override bool CanFire(ChassisController chassis)
     {
-        return chassis != null && chassis.TryConsumeEnergy(energyCost);
+        return true;
     }
 }
