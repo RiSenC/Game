@@ -14,12 +14,11 @@ public class LaserWeaponImproved : WeaponBase
     private bool isFiring = false;
     private void Awake()
     {
-        weaponName = "Лазер";
+        weaponName = "Laser";
         damage = 20f;           // per second
         fireRate = 999f;        // n/a for laser
         baseSpread = 0f;
         turretRotationSpeed = 350f;
-        energyCost = 0;         // handled via drain
     }
     
     private void Start()

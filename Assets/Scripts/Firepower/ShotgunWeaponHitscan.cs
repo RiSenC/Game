@@ -12,13 +12,12 @@ public class ShotgunWeaponHitscan : HitscanWeapon
     
     private void Awake()
     {
-        weaponName = "Дробовик";
+        weaponName = "Shotgun";
         damage = 10f;           // per pellet
         fireRate = 1.2f;
         baseSpread = 0f;
         movementSpreadBonus = 0f;
         turretRotationSpeed = 200f;
-        energyCost = 0;
     }
     
     protected override void FireHitscan(Transform firePoint, float spreadMultiplier)

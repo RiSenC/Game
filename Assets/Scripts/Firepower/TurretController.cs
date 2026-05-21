@@ -20,6 +20,7 @@ public class TurretController : MonoBehaviour
     private int bulletsFiredInBurst = 0;
     private float timeSinceLastShot = 0f;
     private float currentAccuracy = 0f;
+    private PlayerRunStats runStats;
     
     [Header("Accuracy Settings")]
     public int accuracyThreshold = 10;
@@ -41,6 +42,7 @@ public class TurretController : MonoBehaviour
             fireAction = playerInput.actions["Fire"];
 
         vehicleRigidbody = GetComponentInParent<Rigidbody2D>();
+        runStats = GetComponentInParent<PlayerRunStats>();
         currentAccuracy = 0f;
     }
     
@@ -72,6 +74,13 @@ public class TurretController : MonoBehaviour
         }
         
         transform.localScale = newConfig.turretScale;
+        RefreshRuntimeBonuses();
+    }
+
+    public void RefreshRuntimeBonuses()
+    {
+        if (runStats == null)
+            runStats = GetComponentInParent<PlayerRunStats>();
     }
     
     void UpdateMousePosition()
@@ -110,7 +119,7 @@ public class TurretController : MonoBehaviour
         }
         else
         {
-            currentAccuracy -= standingAccuracyRecoveryRate * Time.deltaTime;
+            currentAccuracy -= standingAccuracyRecoveryRate * GetAccuracyRecoveryMultiplier() * Time.deltaTime;
         }
         
         currentAccuracy = Mathf.Clamp(currentAccuracy, 0f, turretConfig.maxSpreadAngle);
@@ -125,7 +134,8 @@ public class TurretController : MonoBehaviour
     
     void TryFire()
     {
-        if (Time.time - lastFireTime < turretConfig.fireRate)
+        float adjustedCooldown = turretConfig.fireRate / GetFireRateMultiplier();
+        if (Time.time - lastFireTime < adjustedCooldown)
             return;
         
         lastFireTime = Time.time;
@@ -177,7 +187,7 @@ public class TurretController : MonoBehaviour
         Vector2 endPoint = foundHit ? hit.point : origin + direction * DefaultHitscanRange;
 
         if (foundHit && hit.collider.TryGetComponent<HealthSystem>(out var health))
-            health.TakeDamage(turretConfig.bulletDamage, -direction);
+            health.TakeDamage(GetAdjustedDamage(), -direction);
 
         SpawnTracer(origin, endPoint);
     }
@@ -194,11 +204,26 @@ public class TurretController : MonoBehaviour
         {
             Vector2 inheritedVelocity = vehicleRigidbody != null ? vehicleRigidbody.linearVelocity : Vector2.zero;
             Vector2 bulletVelocity = direction * turretConfig.bulletSpeed + inheritedVelocity;
-            projectile.Init(turretConfig.bulletDamage, bulletVelocity.magnitude);
+            projectile.Init(GetAdjustedDamage(), bulletVelocity.magnitude);
             Rigidbody2D bulletRb = bulletObj.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
                 bulletRb.linearVelocity = bulletVelocity;
         }
+    }
+
+    float GetAdjustedDamage()
+    {
+        return turretConfig.bulletDamage * (runStats != null ? runStats.WeaponDamageMultiplier : 1f);
+    }
+
+    float GetFireRateMultiplier()
+    {
+        return runStats != null ? runStats.TurretFireRateMultiplier : 1f;
+    }
+
+    float GetAccuracyRecoveryMultiplier()
+    {
+        return runStats != null ? runStats.AccuracyRecoveryMultiplier : 1f;
     }
 
     void SpawnTracer(Vector2 start, Vector2 end)

@@ -2755,6 +2755,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   pushbackForce: 10
+--- !u!1 &300000100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300000101}
+  - component: {fileID: 300000102}
+  m_Layer: 0
+  m_Name: RunProgression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300000101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300000100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300000102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300000100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e145a58424dc4e9b81462955f6244450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunProgressionController
+  player: {fileID: 1263461553}
+  roomDatabase: {fileID: 11400000, guid: d8fc165e30e84278bc93a5554fcf4d76, type: 2}
+  totalFloors: 5
+  choicesPerFloor: 2
+  basicEnemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
+  heavyEnemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
+  shooterEnemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}
+  hullRewardPool:
+  - {fileID: 11400000, guid: ff2e384a3e4d9fe4190eacf8822213bf, type: 2}
+  - {fileID: 11400000, guid: 0d461ae56851fc4409f475cbfe52f60b, type: 2}
+  - {fileID: 11400000, guid: a1f2309e5f2f4491af7d23a44e2d9c11, type: 2}
+  - {fileID: 11400000, guid: 6e6bb7ff34fd4f899089fe4f18284bd4, type: 2}
+  turretRewardPool:
+  - {fileID: 11400000, guid: 4e34c076a04cc1444828bf20687c29d5, type: 2}
+  - {fileID: 11400000, guid: e0cb52d29d69c2f46b9e831dbee72ae6, type: 2}
+  - {fileID: 11400000, guid: dcae663f8d4d41b78a8fc782984f1799, type: 2}
+  - {fileID: 11400000, guid: 940035509d884fce9a1f08da4a7258d9, type: 2}
+  locomotionRewardPool: []
+  weaponRewardPool: []
+  rewardOffset: {x: 0, y: 1.5}
+  portalCenter: {x: 0, y: 3.5}
+  portalSpacing: 2.5
 --- !u!50 &2101157293
 Rigidbody2D:
   serializedVersion: 5

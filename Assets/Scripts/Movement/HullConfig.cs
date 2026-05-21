@@ -20,7 +20,11 @@ public class HullConfig : ScriptableObject
     [Header("Combat")]
     public float maxHealth = 100f;
     public float armor = 10f;
-    
+
+    [Header("Meta")]
+    public ModuleRarity rarity = ModuleRarity.Common;
+    public int scrapCost = 10;
+
     [Header("Visual")]
     public Sprite hullSprite;
     public Vector3 hullScale = Vector3.one;

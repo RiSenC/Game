@@ -17,6 +17,8 @@ public class PlayerModuleController : MonoBehaviour
     public HealthSystem healthSystem;
     public ChassisController chassisController;
 
+    private PlayerRunStats runStats;
+
     private void Awake()
     {
         if (healthSystem == null)
@@ -29,6 +31,8 @@ public class PlayerModuleController : MonoBehaviour
             hullRenderer = GetComponentInChildren<SpriteRenderer>();
         if (currentLocomotion == null)
             currentLocomotion = GetComponentInChildren<LocomotionBase>();
+        if (runStats == null)
+            runStats = GetComponent<PlayerRunStats>();
     }
 
     private void Start()
@@ -38,6 +42,8 @@ public class PlayerModuleController : MonoBehaviour
 
         if (currentTurret != null && turretController != null)
             turretController.SetTurretConfig(currentTurret);
+
+        RefreshRuntimeBonuses();
     }
 
     public bool SwapHull(HullConfig newHull)
@@ -84,20 +90,47 @@ public class PlayerModuleController : MonoBehaviour
     public TurretConfig GetCurrentTurret() => currentTurret;
     public LocomotionBase GetCurrentLocomotion() => currentLocomotion;
     public WeaponBase GetCurrentWeapon() => currentWeapon;
+    public PlayerRunStats GetRunStats() => runStats;
+
+    public void RefreshRuntimeBonuses()
+    {
+        if (runStats == null)
+            runStats = GetComponent<PlayerRunStats>();
+
+        if (currentHull != null)
+            ApplyHull(currentHull);
+
+        if (turretController != null)
+            turretController.RefreshRuntimeBonuses();
+
+        if (chassisController != null)
+            chassisController.ApplyRunModifiers(runStats);
+    }
 
     private void ApplyHull(HullConfig hull)
     {
+        if (runStats == null)
+            runStats = GetComponent<PlayerRunStats>();
+
         if (hullRenderer != null && hull.hullSprite != null)
             hullRenderer.sprite = hull.hullSprite;
 
+        float maxHealth = hull.maxHealth;
+        float armor = hull.armor;
+        if (runStats != null)
+        {
+            maxHealth *= runStats.HullHealthMultiplier;
+            armor *= runStats.HullArmorMultiplier;
+        }
+
         if (healthSystem != null)
         {
-            healthSystem.maxHP = hull.maxHealth;
-            healthSystem.currentHP = hull.maxHealth;
-            healthSystem.armorFlat = hull.armor;
+            healthSystem.maxHP = maxHealth;
+            healthSystem.currentHP = maxHealth;
+            healthSystem.armorFlat = armor;
         }
 
         if (chassisController != null)
-            chassisController.SetBaseHullStats(hull.maxHealth, hull.armor);
+            chassisController.SetBaseHullStats(maxHealth, armor);
     }
 }

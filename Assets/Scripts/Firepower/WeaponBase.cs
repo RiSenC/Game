@@ -13,7 +13,8 @@ public abstract class WeaponBase : MonoBehaviour
     public float baseSpread = 0f;
     public float movementSpreadBonus = 0f;
     public float turretRotationSpeed = 180f;
-    public float energyCost = 0f;
+    public ModuleRarity rarity = ModuleRarity.Common;
+    public int scrapCost = 10;
 
     [Header("Prefabs")]
     public GameObject projectilePrefab;

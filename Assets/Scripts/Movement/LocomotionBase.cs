@@ -12,6 +12,10 @@ public abstract class LocomotionBase : MonoBehaviour
     public float acceleration = 5f;
     public float deceleration = 3f;
     public float rotationSpeed = 180f;  // degrees per second
+
+    [Header("Meta")]
+    public ModuleRarity rarity = ModuleRarity.Common;
+    public int scrapCost = 10;
     
     protected Vector2 currentVelocity = Vector2.zero;
     protected Rigidbody2D rb;
@@ -23,6 +27,9 @@ public abstract class LocomotionBase : MonoBehaviour
     protected float baseAcceleration;
     protected float baseDeceleration;
     protected float baseRotationSpeed;
+    protected float runSpeedMultiplier = 1f;
+    protected float runAccelerationMultiplier = 1f;
+    protected float runTurnMultiplier = 1f;
     
     protected virtual void Awake()
     {
@@ -59,10 +66,28 @@ public abstract class LocomotionBase : MonoBehaviour
     /// <summary>Apply chassis modifiers to this locomotion</summary>
     public virtual void ApplyChassisModifiers(ChassisStats stats)
     {
-        maxSpeed = baseMaxSpeed * stats.speedMultiplier;
-        acceleration = baseAcceleration * stats.accelerationMultiplier;
-        deceleration = baseDeceleration * stats.accelerationMultiplier;
-        rotationSpeed = baseRotationSpeed * stats.turningMultiplier;
+        maxSpeed = baseMaxSpeed * stats.speedMultiplier * runSpeedMultiplier;
+        acceleration = baseAcceleration * stats.accelerationMultiplier * runAccelerationMultiplier;
+        deceleration = baseDeceleration * stats.accelerationMultiplier * runAccelerationMultiplier;
+        rotationSpeed = baseRotationSpeed * stats.turningMultiplier * runTurnMultiplier;
+    }
+
+    public virtual void ApplyRunModifiers(PlayerRunStats runStats)
+    {
+        runSpeedMultiplier = runStats != null ? runStats.MobilitySpeedMultiplier : 1f;
+        runAccelerationMultiplier = runStats != null ? runStats.MobilityAccelerationMultiplier : 1f;
+        runTurnMultiplier = runStats != null ? runStats.MobilityTurnMultiplier : 1f;
+
+        if (chassis != null && chassis.chassisStats != null)
+        {
+            ApplyChassisModifiers(chassis.chassisStats);
+            return;
+        }
+
+        maxSpeed = baseMaxSpeed * runSpeedMultiplier;
+        acceleration = baseAcceleration * runAccelerationMultiplier;
+        deceleration = baseDeceleration * runAccelerationMultiplier;
+        rotationSpeed = baseRotationSpeed * runTurnMultiplier;
     }
     
     /// <summary>Helper: accelerate toward target speed</summary>

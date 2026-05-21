@@ -20,5 +20,7 @@ MonoBehaviour:
   handbrakeSteeringBoost: 2
   maxHealth: 30
   armor: 5
+  rarity: 0
+  scrapCost: 0
   hullSprite: {fileID: 0}
   hullScale: {x: 1, y: 1, z: 1}

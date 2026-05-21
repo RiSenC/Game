@@ -15,12 +15,14 @@ public class ChassisController : MonoBehaviour
     private float baseMaxHP;
     private float baseArmorFlat;
     private float baseArmorPercent;
+    private PlayerRunStats runStats;
     
     private void Awake()
     {
         healthSystem = GetComponent<HealthSystem>();
         locomotion = GetComponentInChildren<LocomotionBase>();
         weaponSystem = GetComponentInChildren<WeaponSystem>();
+        runStats = GetComponent<PlayerRunStats>();
 
         if (healthSystem != null)
         {
@@ -51,6 +53,7 @@ public class ChassisController : MonoBehaviour
         if (locomotion != null)
         {
             locomotion.ApplyChassisModifiers(chassisStats);
+            locomotion.ApplyRunModifiers(runStats);
         }
     }
 
@@ -89,6 +92,15 @@ public class ChassisController : MonoBehaviour
         locomotion.chassis = this;
         if (chassisStats != null)
             locomotion.ApplyChassisModifiers(chassisStats);
+        locomotion.ApplyRunModifiers(runStats);
+    }
+
+    public void ApplyRunModifiers(PlayerRunStats stats)
+    {
+        runStats = stats;
+        locomotion = GetComponentInChildren<LocomotionBase>();
+        if (locomotion != null)
+            locomotion.ApplyRunModifiers(runStats);
     }
     
     /// <summary>Swap weapon at runtime</summary>
