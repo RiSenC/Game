@@ -18,6 +18,7 @@ public class RandomEventPickup : MonoBehaviour
     public float pickupDelay = 0.2f;
 
     private float spawnedAt;
+    private TextMesh label;
 
     private void Awake()
     {
@@ -35,6 +36,15 @@ public class RandomEventPickup : MonoBehaviour
         transform.localScale = new Vector3(0.75f, 0.75f, 1f);
 
         EnsureLabel();
+    }
+
+    public void Configure(RunProgressionController targetController, EventOutcome eventOutcome, int rewardScrap, float repairAmount)
+    {
+        controller = targetController;
+        outcome = eventOutcome;
+        scrapReward = rewardScrap;
+        healAmount = repairAmount;
+        RefreshLabel();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -69,9 +79,23 @@ public class RandomEventPickup : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void RefreshLabel()
+    {
+        EnsureLabel();
+        label.text = outcome switch
+        {
+            EventOutcome.ScrapCache => "Scrap Cache",
+            EventOutcome.FieldRepair => "Field Repair",
+            EventOutcome.FreeModule => "Prototype Drop",
+            EventOutcome.Ambush => "Unstable Signal",
+            _ => "Event"
+        };
+    }
+
     private void EnsureLabel()
     {
-        TextMesh label = GetComponentInChildren<TextMesh>();
+        if (label == null)
+            label = GetComponentInChildren<TextMesh>();
         if (label == null)
         {
             GameObject labelObject = new GameObject("Label");
@@ -83,14 +107,5 @@ public class RandomEventPickup : MonoBehaviour
             label.alignment = TextAlignment.Center;
             label.color = Color.white;
         }
-
-        label.text = outcome switch
-        {
-            EventOutcome.ScrapCache => "Scrap Cache",
-            EventOutcome.FieldRepair => "Field Repair",
-            EventOutcome.FreeModule => "Prototype Drop",
-            EventOutcome.Ambush => "Unstable Signal",
-            _ => "Event"
-        };
     }
 }

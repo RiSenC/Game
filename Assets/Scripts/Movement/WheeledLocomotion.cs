@@ -26,7 +26,8 @@ public abstract class WheeledLocomotion : LocomotionBase
         if (Mathf.Abs(currentSpeed) > 0.05f || Mathf.Abs(currentThrottleInput) > 0.1f)
         {
             float horizontalInput = moveInput.x;
-            desiredSteeringAngle = -horizontalInput * steeringResponseSpeed;
+            float reverseSteering = currentThrottleInput < -0.1f ? 1f : -1f;
+            desiredSteeringAngle = horizontalInput * reverseSteering * steeringResponseSpeed;
         }
         else
         {

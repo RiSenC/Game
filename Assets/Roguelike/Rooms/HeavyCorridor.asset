@@ -18,15 +18,38 @@ MonoBehaviour:
   maxFloor: 99
   selectionWeight: 1
   waveCountOverride: 2
-  playerSpawn: {x: 0, y: -4}
+  playerSpawn: {x: 0, y: -7}
   rewardSpawn: {x: 0, y: 0.75}
+  arenaSize: {x: 18, y: 18}
+  obstaclePositions:
+  - {x: -5.2, y: -1.2}
+  - {x: 5.2, y: -1.2}
+  - {x: 0, y: 3.8}
+  obstacleSize: {x: 1.7, y: 1.7}
   enemySpawnPositions:
-  - {x: -2.5, y: 1.75}
-  - {x: 2.5, y: 1.75}
-  - {x: 0, y: 4.5}
+  - {x: -5.5, y: 3.6}
+  - {x: 5.5, y: 3.6}
+  - {x: 0, y: 7}
   enemySpawns:
   - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
     count: 2
   - enemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
     count: 1
-  waves: []
+  waves:
+  - waveName: Screen
+    enemySpawnPositions:
+    - {x: -5.5, y: 3.6}
+    - {x: 5.5, y: 3.6}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
+      count: 2
+  - waveName: Heavy Push
+    enemySpawnPositions:
+    - {x: 0, y: 7}
+    - {x: -5.8, y: 5.2}
+    - {x: 5.8, y: 5.2}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
+      count: 1
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
+      count: 2

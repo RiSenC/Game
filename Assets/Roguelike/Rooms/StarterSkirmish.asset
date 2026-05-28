@@ -20,11 +20,15 @@ MonoBehaviour:
   waveCountOverride: 1
   playerSpawn: {x: 0, y: -3}
   rewardSpawn: {x: 0, y: 0.75}
+  arenaSize: {x: 22, y: 18}
+  obstaclePositions:
+  - {x: -5.5, y: -0.35}
+  - {x: 5.5, y: -0.35}
+  obstacleSize: {x: 1.6, y: 1.6}
   enemySpawnPositions:
-  - {x: -3.5, y: 2}
-  - {x: 0, y: 3.75}
-  - {x: 3.5, y: 2}
+  - {x: -5.5, y: 4.5}
+  - {x: 5.5, y: 4.5}
   enemySpawns:
   - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
-    count: 3
+    count: 2
   waves: []

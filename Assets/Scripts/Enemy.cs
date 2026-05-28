@@ -66,8 +66,10 @@ public class Enemy : MonoBehaviour
     private float nextDecisionTime;
     private Vector2 spawnAnchor;
     private bool isElite;
+    private bool deathHandled;
 
     public System.Action<Enemy> Died;
+    public bool IsDeadOrDying => deathHandled || healthSystem != null && (healthSystem.IsDead || healthSystem.currentHP <= 0f);
 
     private void Awake()
     {
@@ -80,7 +82,11 @@ public class Enemy : MonoBehaviour
 
         healthSystem.maxHP = maxHealth;
         healthSystem.currentHP = maxHealth;
+        healthSystem.armorFlat = 0f;
+        healthSystem.armorPercent = 0f;
+        healthSystem.minDamagePercent = 1f;
         healthSystem.OnHealthChanged += HandleDamage;
+        healthSystem.OnDeath += Die;
 
         CaptureBaseStats();
         orbitDirection = Random.value < 0.5f ? -1 : 1;
@@ -108,13 +114,18 @@ public class Enemy : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        healthSystem.OnDeath += Die;
         RecalculateTacticalOffset();
     }
 
     private void FixedUpdate()
     {
-        if (playerTransform == null || healthSystem.IsDead)
+        if (IsDeadOrDying)
+        {
+            Die();
+            return;
+        }
+
+        if (playerTransform == null || healthSystem == null)
         {
             TryResolvePlayerReference();
             return;
@@ -180,6 +191,9 @@ public class Enemy : MonoBehaviour
         {
             healthSystem.maxHP = maxHealth;
             healthSystem.currentHP = maxHealth;
+            healthSystem.armorFlat = 0f;
+            healthSystem.armorPercent = 0f;
+            healthSystem.minDamagePercent = 1f;
         }
 
         if (spriteRenderer != null)
@@ -320,6 +334,15 @@ public class Enemy : MonoBehaviour
 
     private void HandleDamage(float current, float max)
     {
+        if (deathHandled)
+            return;
+
+        if (current <= 0f)
+        {
+            Die();
+            return;
+        }
+
         if (spriteRenderer == null)
             return;
 
@@ -328,19 +351,53 @@ public class Enemy : MonoBehaviour
         flashTimer = damageFlashDuration;
     }
 
+    public void Kill()
+    {
+        Die();
+    }
+
     private void Die()
     {
+        if (deathHandled)
+            return;
+
+        deathHandled = true;
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.simulated = false;
+        }
+
         SpawnLoot();
         Died?.Invoke(this);
+        DisableBodyImmediately();
+        gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    private void DisableBodyImmediately()
+    {
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        for (int i = 0; i < colliders.Length; i++)
+            colliders[i].enabled = false;
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < renderers.Length; i++)
+            renderers[i].enabled = false;
+
+        enabled = false;
     }
 
     private void TryShoot(Vector2 directionToPlayer, float distanceToPlayer)
     {
+        if (IsDeadOrDying || !isActiveAndEnabled)
+            return;
+
         if (Time.time < lastShotTime + fireCooldown)
             return;
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionToPlayer, distanceToPlayer);
+        System.Array.Sort(hits, (left, right) => left.distance.CompareTo(right.distance));
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit2D hit = hits[i];
@@ -348,9 +405,12 @@ public class Enemy : MonoBehaviour
                 continue;
             if (hit.collider.transform.root == transform.root)
                 continue;
+            if (hit.collider.isTrigger)
+                continue;
 
             SpawnTracer(transform.position, hit.point);
-            if (hit.collider.TryGetComponent<HealthSystem>(out HealthSystem health))
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
+            if (health != null)
                 health.TakeDamage(attackDamage, -directionToPlayer);
 
             lastShotTime = Time.time;

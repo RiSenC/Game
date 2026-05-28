@@ -23,11 +23,15 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.isTrigger)
+            return;
+
         // Don't hit the shooter
         if (other.CompareTag("Player")) return;
 
         // Apply damage if target has health
-        if (other.TryGetComponent<HealthSystem>(out var health))
+        HealthSystem health = other.GetComponentInParent<HealthSystem>();
+        if (health != null)
             health.TakeDamage(damage, -rb.linearVelocity.normalized);
 
         SpawnHitEffect();

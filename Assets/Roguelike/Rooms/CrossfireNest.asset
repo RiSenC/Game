@@ -18,16 +18,37 @@ MonoBehaviour:
   maxFloor: 99
   selectionWeight: 0.9
   waveCountOverride: 2
-  playerSpawn: {x: 0, y: -4}
+  playerSpawn: {x: 0, y: -6.5}
   rewardSpawn: {x: 0, y: 0.75}
+  arenaSize: {x: 20, y: 16}
+  obstaclePositions:
+  - {x: -5.2, y: 0.1}
+  - {x: 5.2, y: 0.1}
+  - {x: 0, y: 4.4}
+  obstacleSize: {x: 1.6, y: 1.9}
   enemySpawnPositions:
-  - {x: -4.5, y: 0.5}
-  - {x: 4.5, y: 0.5}
-  - {x: 0, y: 4.25}
-  - {x: 0, y: 2.25}
+  - {x: -7.2, y: 1.2}
+  - {x: 7.2, y: 1.2}
+  - {x: 0, y: 6.4}
+  - {x: 0, y: 3.4}
   enemySpawns:
   - enemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}
     count: 2
   - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
     count: 2
-  waves: []
+  waves:
+  - waveName: Crossfire
+    enemySpawnPositions:
+    - {x: -7.2, y: 1.2}
+    - {x: 7.2, y: 1.2}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}
+      count: 2
+  - waveName: Collapse
+    enemySpawnPositions:
+    - {x: 0, y: 6.4}
+    - {x: -4.8, y: 3.8}
+    - {x: 4.8, y: 3.8}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
+      count: 3

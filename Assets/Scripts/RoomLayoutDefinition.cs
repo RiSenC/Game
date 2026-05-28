@@ -22,6 +22,9 @@ public class RoomLayoutDefinition : ScriptableObject
     public int waveCountOverride;
     public Vector2 playerSpawn = Vector2.zero;
     public Vector2 rewardSpawn = new Vector2(0f, 0.5f);
+    public Vector2 arenaSize = new Vector2(11f, 9f);
+    public Vector2[] obstaclePositions;
+    public Vector2 obstacleSize = new Vector2(1.15f, 1.15f);
     public Vector2[] enemySpawnPositions;
     public RoomEnemySpawnEntry[] enemySpawns;
     public RoomWaveDefinition[] waves;

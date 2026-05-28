@@ -22,15 +22,20 @@ public abstract class HitscanWeapon : WeaponBase
         float spreadOffset = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
         Vector2 finalDir = Quaternion.Euler(0, 0, spreadOffset) * direction;
         
-        RaycastHit2D hit = Physics2D.Raycast(origin, finalDir, 100f, hitLayers);
-        
-        if (hit)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, finalDir, 100f, hitLayers);
+        System.Array.Sort(hits, (left, right) => left.distance.CompareTo(right.distance));
+
+        foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider.TryGetComponent<HealthSystem>(out var health))
-                health.TakeDamage(damage, -finalDir);  // Pass hit direction for zonal armor
-            
-            // Spawn impact effect
+            if (hit.collider == null || hit.collider.isTrigger)
+                continue;
+
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
+            if (health != null)
+                health.TakeDamage(damage, -finalDir);
+
             SpawnHitEffect();
+            return;
         }
     }
 }

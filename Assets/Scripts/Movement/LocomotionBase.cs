@@ -30,6 +30,7 @@ public abstract class LocomotionBase : MonoBehaviour
     protected float runSpeedMultiplier = 1f;
     protected float runAccelerationMultiplier = 1f;
     protected float runTurnMultiplier = 1f;
+    private bool initializedBaseStats;
     
     protected virtual void Awake()
     {
@@ -39,12 +40,28 @@ public abstract class LocomotionBase : MonoBehaviour
 
         chassis = GetComponentInParent<ChassisController>();
         playerInput = GetComponentInParent<PlayerInput>();
-        moveAction = playerInput != null ? playerInput.actions["Move"] : null;
+        moveAction = playerInput != null && playerInput.actions != null
+            ? playerInput.actions.FindAction("Move", false)
+            : null;
         movementRoot = chassis != null ? chassis.transform : transform;
+        CacheBaseStats();
+    }
+
+    protected virtual void Start()
+    {
+        CacheBaseStats();
+    }
+
+    private void CacheBaseStats()
+    {
+        if (initializedBaseStats)
+            return;
+
         baseMaxSpeed = maxSpeed;
         baseAcceleration = acceleration;
         baseDeceleration = deceleration;
         baseRotationSpeed = rotationSpeed;
+        initializedBaseStats = true;
     }
     
     protected virtual void Update()
@@ -66,6 +83,7 @@ public abstract class LocomotionBase : MonoBehaviour
     /// <summary>Apply chassis modifiers to this locomotion</summary>
     public virtual void ApplyChassisModifiers(ChassisStats stats)
     {
+        CacheBaseStats();
         maxSpeed = baseMaxSpeed * stats.speedMultiplier * runSpeedMultiplier;
         acceleration = baseAcceleration * stats.accelerationMultiplier * runAccelerationMultiplier;
         deceleration = baseDeceleration * stats.accelerationMultiplier * runAccelerationMultiplier;
@@ -74,6 +92,7 @@ public abstract class LocomotionBase : MonoBehaviour
 
     public virtual void ApplyRunModifiers(PlayerRunStats runStats)
     {
+        CacheBaseStats();
         runSpeedMultiplier = runStats != null ? runStats.MobilitySpeedMultiplier : 1f;
         runAccelerationMultiplier = runStats != null ? runStats.MobilityAccelerationMultiplier : 1f;
         runTurnMultiplier = runStats != null ? runStats.MobilityTurnMultiplier : 1f;

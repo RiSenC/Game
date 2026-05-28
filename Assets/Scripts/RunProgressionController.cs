@@ -7,8 +7,12 @@ public class RunProgressionController : MonoBehaviour
     [Header("Core")]
     public PlayerModuleController player;
     public RoomDatabase roomDatabase;
-    public int totalFloors = 5;
+    public int totalFloors = 3;
     public int choicesPerFloor = 2;
+
+    [Header("Map Loop")]
+    public bool rollingThreeNodeMap = true;
+    public bool requireCombatRewardBeforePath = true;
 
     [Header("Fallback Enemies")]
     public GameObject basicEnemyPrefab;
@@ -48,6 +52,12 @@ public class RunProgressionController : MonoBehaviour
     public Vector2 portalCenter = new Vector2(0f, 3.5f);
     public float portalSpacing = 2.5f;
 
+    [Header("Runtime Room Dressing")]
+    public Color combatFloorColor = new Color(0.12f, 0.14f, 0.16f, 1f);
+    public Color serviceFloorColor = new Color(0.13f, 0.17f, 0.18f, 1f);
+    public Color wallColor = new Color(0.32f, 0.36f, 0.4f, 1f);
+    public Color coverColor = new Color(0.25f, 0.29f, 0.33f, 1f);
+
     private readonly List<List<RuntimeRoomOption>> generatedFloors = new List<List<RuntimeRoomOption>>();
     private readonly List<Enemy> aliveEnemies = new List<Enemy>();
     private readonly List<GameObject> spawnedRuntimeObjects = new List<GameObject>();
@@ -61,11 +71,13 @@ public class RunProgressionController : MonoBehaviour
     private RuntimeRoomOption currentRoom;
     private PlayerRunStats runStats;
     private bool eventAmbushActive;
+    private bool waitingForMandatoryReward;
+    private bool roomResolved;
 
     private void Start()
     {
         if (player == null)
-            player = Object.FindFirstObjectByType<PlayerModuleController>();
+            player = UnityEngine.Object.FindFirstObjectByType<PlayerModuleController>();
 
         if (player != null && player.GetComponent<PlayerRunStats>() == null)
             player.gameObject.AddComponent<PlayerRunStats>();
@@ -74,6 +86,11 @@ public class RunProgressionController : MonoBehaviour
         DestroySceneEnemies();
         BuildMap();
         LoadFirstRoom();
+    }
+
+    private void Update()
+    {
+        CleanupDeadEnemies();
     }
 
     public void SelectNextRoom(int floorIndex, int optionIndex)
@@ -97,6 +114,7 @@ public class RunProgressionController : MonoBehaviour
             return;
 
         eventAmbushActive = true;
+        ClearPortals();
         currentWaves.Clear();
         currentWaveIndex = -1;
         currentWaves.Add(BuildFallbackWave(currentFloor, true));
@@ -114,21 +132,32 @@ public class RunProgressionController : MonoBehaviour
     {
         generatedFloors.Clear();
 
-        for (int floor = 0; floor < totalFloors; floor++)
+        int floorCount = rollingThreeNodeMap ? 1 : Mathf.Max(1, totalFloors);
+        for (int floor = 0; floor < floorCount; floor++)
+            generatedFloors.Add(CreateFloorOptions(floor, GetOptionCountForFloor(floor)));
+    }
+
+    private List<RuntimeRoomOption> CreateFloorOptions(int floor, int optionCount)
+    {
+        List<RuntimeRoomOption> options = new List<RuntimeRoomOption>();
+        HashSet<RunRoomType> usedTypes = new HashSet<RunRoomType>();
+
+        for (int i = 0; i < optionCount; i++)
         {
-            List<RuntimeRoomOption> options = new List<RuntimeRoomOption>();
-            HashSet<RunRoomType> usedTypes = new HashSet<RunRoomType>();
-            int optionCount = Mathf.Max(1, choicesPerFloor);
-
-            for (int i = 0; i < optionCount; i++)
-            {
-                RuntimeRoomOption option = CreateRoomOption(floor, i, usedTypes);
-                options.Add(option);
-                usedTypes.Add(option.roomType);
-            }
-
-            generatedFloors.Add(options);
+            RuntimeRoomOption option = CreateRoomOption(floor, i, usedTypes);
+            options.Add(option);
+            usedTypes.Add(option.roomType);
         }
+
+        return options;
+    }
+
+    private int GetOptionCountForFloor(int floor)
+    {
+        if (rollingThreeNodeMap && floor == 0)
+            return 1;
+
+        return Mathf.Max(1, choicesPerFloor);
     }
 
     private RuntimeRoomOption CreateRoomOption(int floorIndex, int optionIndex, HashSet<RunRoomType> usedTypes)
@@ -245,6 +274,8 @@ public class RunProgressionController : MonoBehaviour
         currentRewardSpawn = option.layout != null ? option.layout.rewardSpawn : rewardOffset;
         useLayoutRewardSpawn = option.layout != null;
         eventAmbushActive = false;
+        waitingForMandatoryReward = false;
+        roomResolved = false;
 
         if (player != null)
         {
@@ -252,6 +283,8 @@ public class RunProgressionController : MonoBehaviour
             player.transform.position = spawn;
             player.RefreshRuntimeBonuses();
         }
+
+        SpawnRoomDressing(option);
 
         switch (option.roomType)
         {
@@ -416,6 +449,37 @@ public class RunProgressionController : MonoBehaviour
             enemy.Died -= HandleEnemyDeath;
 
         aliveEnemies.Remove(enemy);
+        HandleAllEnemiesCleared();
+    }
+
+    private void CleanupDeadEnemies()
+    {
+        if (aliveEnemies.Count == 0)
+            return;
+
+        bool removedAny = false;
+        for (int i = aliveEnemies.Count - 1; i >= 0; i--)
+        {
+            Enemy enemy = aliveEnemies[i];
+            if (enemy != null && !enemy.IsDeadOrDying)
+                continue;
+
+            if (enemy != null)
+            {
+                enemy.Died -= HandleEnemyDeath;
+                enemy.Kill();
+            }
+
+            aliveEnemies.RemoveAt(i);
+            removedAny = true;
+        }
+
+        if (removedAny)
+            HandleAllEnemiesCleared();
+    }
+
+    private void HandleAllEnemiesCleared()
+    {
         if (aliveEnemies.Count > 0)
             return;
 
@@ -437,28 +501,57 @@ public class RunProgressionController : MonoBehaviour
 
     private void HandleRoomResolved()
     {
-        if (currentRoom == null)
+        if (currentRoom == null || roomResolved)
             return;
+
+        roomResolved = true;
 
         switch (currentRoom.roomType)
         {
             case RunRoomType.Combat:
-                SpawnModuleReward(GetScaledRarityOdds(currentFloor, false, false), false);
+                SpawnMandatoryRoomReward(false);
                 break;
             case RunRoomType.Elite:
-                SpawnModuleReward(GetScaledRarityOdds(currentFloor, true, false), false);
+                SpawnMandatoryRoomReward(true);
                 break;
         }
 
+        if (!waitingForMandatoryReward)
+            OpenPathForward();
+    }
+
+    private void SpawnMandatoryRoomReward(bool elite)
+    {
+        ModulePickup reward = SpawnModuleReward(GetScaledRarityOdds(currentFloor, elite, false), false);
+        if (reward == null || !requireCombatRewardBeforePath)
+            return;
+
+        waitingForMandatoryReward = true;
+        reward.PickedUp += HandleMandatoryRewardPickedUp;
+    }
+
+    private void HandleMandatoryRewardPickedUp(ModulePickup pickup)
+    {
+        if (pickup != null)
+            pickup.PickedUp -= HandleMandatoryRewardPickedUp;
+
+        if (!waitingForMandatoryReward)
+            return;
+
+        waitingForMandatoryReward = false;
         OpenPathForward();
     }
 
     private void OpenPathForward()
     {
         int nextFloor = currentFloor + 1;
+
+        if (rollingThreeNodeMap && nextFloor >= generatedFloors.Count && (totalFloors <= 0 || nextFloor < totalFloors))
+            generatedFloors.Add(CreateFloorOptions(nextFloor, GetOptionCountForFloor(nextFloor)));
+
         if (nextFloor >= generatedFloors.Count)
         {
-            Debug.Log("Run complete!");
+            SpawnRunCompleteMarker();
             return;
         }
 
@@ -470,25 +563,62 @@ public class RunProgressionController : MonoBehaviour
         ClearPortals();
 
         List<RuntimeRoomOption> options = generatedFloors[floorIndex];
-        float totalWidth = (options.Count - 1) * portalSpacing;
-        Vector3 center = player != null ? player.transform.position : Vector3.zero;
-        center += (Vector3)portalCenter;
+        float spacing = Mathf.Max(portalSpacing, GetCurrentArenaSize().x * 0.32f);
+        float totalWidth = (options.Count - 1) * spacing;
+        Vector3 center = GetDoorCenterPosition();
 
         for (int i = 0; i < options.Count; i++)
         {
-            Vector3 position = center + Vector3.right * (-totalWidth * 0.5f + i * portalSpacing);
-            GameObject portalObject = new GameObject($"Choice Portal {floorIndex + 1}-{i + 1}");
+            Vector3 position = center + Vector3.right * (-totalWidth * 0.5f + i * spacing);
+            GameObject portalObject = new GameObject($"{GetDoorDirectionName(i)} Door {floorIndex + 1}-{i + 1}");
             portalObject.transform.position = position;
-            portalObject.AddComponent<CircleCollider2D>().radius = 0.6f;
+            portalObject.AddComponent<BoxCollider2D>().size = Vector2.one;
 
             MapChoicePortal portal = portalObject.AddComponent<MapChoicePortal>();
-            portal.controller = this;
-            portal.floorIndex = floorIndex;
-            portal.optionIndex = i;
-            portal.choiceLabel = $"{options[i].roomType}: {options[i].displayName}";
+            portal.Configure(this, floorIndex, i, FormatDoorLabel(options[i], i), GetDoorColor(i), new Vector3(1.25f, 2.1f, 1f));
 
             activePortals.Add(portalObject);
         }
+    }
+
+    private Vector3 GetDoorCenterPosition()
+    {
+        Vector2 arenaSize = GetCurrentArenaSize();
+        if (arenaSize.x <= 0.1f || arenaSize.y <= 0.1f)
+            return player != null ? player.transform.position + (Vector3)portalCenter : (Vector3)portalCenter;
+
+        return new Vector3(0f, arenaSize.y * 0.5f - 1.25f, 0f);
+    }
+
+    private Vector2 GetCurrentArenaSize()
+    {
+        if (currentRoom != null && currentRoom.layout != null && currentRoom.layout.arenaSize.x > 0.1f && currentRoom.layout.arenaSize.y > 0.1f)
+            return currentRoom.layout.arenaSize;
+
+        return new Vector2(11f, 9f);
+    }
+
+    private string FormatDoorLabel(RuntimeRoomOption option, int optionIndex)
+    {
+        return $"{GetDoorDirectionName(optionIndex).ToUpperInvariant()}\n{option.roomType}\n{option.displayName}";
+    }
+
+    private string GetDoorDirectionName(int optionIndex)
+    {
+        if (optionIndex == 0)
+            return "Left";
+        if (optionIndex == 1)
+            return "Right";
+        return $"Path {optionIndex + 1}";
+    }
+
+    private Color GetDoorColor(int optionIndex)
+    {
+        if (optionIndex == 0)
+            return new Color(0.2f, 0.65f, 1f, 0.88f);
+        if (optionIndex == 1)
+            return new Color(1f, 0.58f, 0.18f, 0.88f);
+        return new Color(0.55f, 0.85f, 0.55f, 0.88f);
     }
 
     private void SpawnShopOffers()
@@ -525,7 +655,7 @@ public class RunProgressionController : MonoBehaviour
             station.transform.position = GetRoomCenter() + new Vector3((i - (choiceCount - 1) * 0.5f) * 1.8f, 0.5f, 0f);
             station.AddComponent<CircleCollider2D>().radius = 0.55f;
             EngineerUpgradePickup pickup = station.AddComponent<EngineerUpgradePickup>();
-            pickup.upgradeType = upgradeType;
+            pickup.Configure(upgradeType);
             spawnedRuntimeObjects.Add(station);
         }
     }
@@ -537,10 +667,7 @@ public class RunProgressionController : MonoBehaviour
         eventObject.AddComponent<CircleCollider2D>().radius = 0.6f;
 
         RandomEventPickup pickup = eventObject.AddComponent<RandomEventPickup>();
-        pickup.controller = this;
-        pickup.scrapReward = eventScrapReward + currentFloor * 2;
-        pickup.healAmount = eventHealAmount;
-        pickup.outcome = RollEventOutcome();
+        pickup.Configure(this, RollEventOutcome(), eventScrapReward + currentFloor * 2, eventHealAmount);
 
         spawnedRuntimeObjects.Add(eventObject);
     }
@@ -598,6 +725,9 @@ public class RunProgressionController : MonoBehaviour
             Destroy(reward);
             return null;
         }
+
+        if (!isShop)
+            pickup.scrapCost = 0;
 
         pickup.RefreshVisuals();
         reward.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
@@ -848,9 +978,106 @@ public class RunProgressionController : MonoBehaviour
         return useLayoutRewardSpawn ? (Vector3)currentRewardSpawn : player != null ? player.transform.position : Vector3.zero;
     }
 
+    private void SpawnRoomDressing(RuntimeRoomOption option)
+    {
+        Vector2 arenaSize = option.layout != null ? option.layout.arenaSize : new Vector2(11f, 9f);
+        if (arenaSize.x <= 0.1f || arenaSize.y <= 0.1f)
+            arenaSize = new Vector2(11f, 9f);
+
+        Color floorColor = option.roomType == RunRoomType.Combat || option.roomType == RunRoomType.Elite
+            ? combatFloorColor
+            : serviceFloorColor;
+
+        GameObject floor = CreateRuntimeVisual("Room Floor", Vector3.zero, arenaSize, floorColor, -30);
+        spawnedRuntimeObjects.Add(floor);
+
+        float halfWidth = arenaSize.x * 0.5f;
+        float halfHeight = arenaSize.y * 0.5f;
+        float wallThickness = 0.35f;
+
+        spawnedRuntimeObjects.Add(CreateRuntimeBlock("North Wall", new Vector2(0f, halfHeight + wallThickness * 0.5f), new Vector2(arenaSize.x + wallThickness * 2f, wallThickness), wallColor));
+        spawnedRuntimeObjects.Add(CreateRuntimeBlock("South Wall", new Vector2(0f, -halfHeight - wallThickness * 0.5f), new Vector2(arenaSize.x + wallThickness * 2f, wallThickness), wallColor));
+        spawnedRuntimeObjects.Add(CreateRuntimeBlock("West Wall", new Vector2(-halfWidth - wallThickness * 0.5f, 0f), new Vector2(wallThickness, arenaSize.y), wallColor));
+        spawnedRuntimeObjects.Add(CreateRuntimeBlock("East Wall", new Vector2(halfWidth + wallThickness * 0.5f, 0f), new Vector2(wallThickness, arenaSize.y), wallColor));
+
+        Vector2[] obstaclePositions = option.layout != null ? option.layout.obstaclePositions : null;
+        if (obstaclePositions == null || obstaclePositions.Length == 0)
+            obstaclePositions = GetFallbackObstaclePositions(option.roomType);
+
+        Vector2 obstacleSize = option.layout != null ? option.layout.obstacleSize : new Vector2(1.15f, 1.15f);
+        if (obstacleSize.x <= 0.1f || obstacleSize.y <= 0.1f)
+            obstacleSize = new Vector2(1.15f, 1.15f);
+
+        for (int i = 0; i < obstaclePositions.Length; i++)
+            spawnedRuntimeObjects.Add(CreateRuntimeBlock($"Cover {i + 1}", obstaclePositions[i], obstacleSize, coverColor));
+
+        SpawnRoomLabel(option);
+    }
+
+    private Vector2[] GetFallbackObstaclePositions(RunRoomType roomType)
+    {
+        return roomType switch
+        {
+            RunRoomType.Combat => new[] { new Vector2(-2.4f, -0.15f), new Vector2(2.4f, -0.15f) },
+            RunRoomType.Elite => new[] { new Vector2(-3.1f, 0.2f), new Vector2(3.1f, 0.2f), new Vector2(0f, 2.2f) },
+            RunRoomType.Shop => new[] { new Vector2(-4.2f, 1.7f), new Vector2(4.2f, 1.7f) },
+            RunRoomType.Engineer => new[] { new Vector2(-4f, 1.6f), new Vector2(4f, 1.6f) },
+            RunRoomType.Event => new[] { new Vector2(-3.2f, 1.8f), new Vector2(3.2f, 1.8f) },
+            _ => Array.Empty<Vector2>()
+        };
+    }
+
+    private GameObject CreateRuntimeVisual(string objectName, Vector2 position, Vector2 scale, Color color, int sortingOrder)
+    {
+        GameObject visual = new GameObject(objectName);
+        visual.transform.position = position;
+        visual.transform.localScale = new Vector3(scale.x, scale.y, 1f);
+
+        SpriteRenderer renderer = visual.AddComponent<SpriteRenderer>();
+        renderer.sprite = RuntimeSpriteUtility.WhiteSprite;
+        renderer.color = color;
+        renderer.sortingOrder = sortingOrder;
+        return visual;
+    }
+
+    private GameObject CreateRuntimeBlock(string objectName, Vector2 position, Vector2 size, Color color)
+    {
+        GameObject block = CreateRuntimeVisual(objectName, position, size, color, -10);
+        BoxCollider2D collider = block.AddComponent<BoxCollider2D>();
+        collider.size = Vector2.one;
+        block.AddComponent<Obstacle>();
+        return block;
+    }
+
+    private void SpawnRoomLabel(RuntimeRoomOption option)
+    {
+        GameObject labelObject = new GameObject("Room Label");
+        labelObject.transform.position = new Vector3(0f, -4.9f, 0f);
+        TextMesh label = labelObject.AddComponent<TextMesh>();
+        label.text = $"Floor {currentFloor + 1}: {option.displayName}";
+        label.characterSize = 0.18f;
+        label.anchor = TextAnchor.MiddleCenter;
+        label.alignment = TextAlignment.Center;
+        label.color = Color.white;
+        spawnedRuntimeObjects.Add(labelObject);
+    }
+
+    private void SpawnRunCompleteMarker()
+    {
+        GameObject marker = new GameObject("Run Complete");
+        marker.transform.position = GetRoomCenter() + new Vector3(0f, 2.4f, 0f);
+        TextMesh label = marker.AddComponent<TextMesh>();
+        label.text = "Sector clear";
+        label.characterSize = 0.24f;
+        label.anchor = TextAnchor.MiddleCenter;
+        label.alignment = TextAlignment.Center;
+        label.color = new Color(0.45f, 1f, 0.75f, 1f);
+        spawnedRuntimeObjects.Add(marker);
+    }
+
     private void DestroySceneEnemies()
     {
-        Enemy[] sceneEnemies = Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        Enemy[] sceneEnemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         for (int i = 0; i < sceneEnemies.Length; i++)
             Destroy(sceneEnemies[i].gameObject);
     }
@@ -867,6 +1094,26 @@ public class RunProgressionController : MonoBehaviour
         aliveEnemies.Clear();
         currentWaves.Clear();
         eventAmbushActive = false;
+        waitingForMandatoryReward = false;
+        ClearLoosePickups();
+    }
+
+    private void ClearLoosePickups()
+    {
+        DestroyLooseObjects(UnityEngine.Object.FindObjectsByType<HealthPickup>(FindObjectsSortMode.None));
+        DestroyLooseObjects(UnityEngine.Object.FindObjectsByType<ScrapPickup>(FindObjectsSortMode.None));
+        DestroyLooseObjects(UnityEngine.Object.FindObjectsByType<ModulePickup>(FindObjectsSortMode.None));
+        DestroyLooseObjects(UnityEngine.Object.FindObjectsByType<EngineerUpgradePickup>(FindObjectsSortMode.None));
+        DestroyLooseObjects(UnityEngine.Object.FindObjectsByType<RandomEventPickup>(FindObjectsSortMode.None));
+    }
+
+    private void DestroyLooseObjects<T>(T[] components) where T : Component
+    {
+        for (int i = 0; i < components.Length; i++)
+        {
+            if (components[i] != null)
+                Destroy(components[i].gameObject);
+        }
     }
 
     private void ClearPortals()

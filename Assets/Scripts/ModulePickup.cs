@@ -28,6 +28,8 @@ public class ModulePickup : MonoBehaviour
 
     private float spawnedAt;
 
+    public System.Action<ModulePickup> PickedUp;
+
     private void Awake()
     {
         spawnedAt = Time.time;
@@ -101,6 +103,9 @@ public class ModulePickup : MonoBehaviour
 
         if (pickedUp && dropPreviousModule)
             SpawnPreviousModule(previousHull, previousTurret, previousLocomotion, previousWeapon);
+
+        if (pickedUp)
+            PickedUp?.Invoke(this);
 
         if (pickedUp && destroyAfterPickup)
             Destroy(gameObject);

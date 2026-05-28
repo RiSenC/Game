@@ -18,8 +18,13 @@ MonoBehaviour:
   maxFloor: 99
   selectionWeight: 0.95
   waveCountOverride: 0
-  playerSpawn: {x: 0, y: -3}
+  playerSpawn: {x: 0, y: -5}
   rewardSpawn: {x: 0, y: 0.35}
+  arenaSize: {x: 16, y: 12}
+  obstaclePositions:
+  - {x: -6, y: 2.3}
+  - {x: 6, y: 2.3}
+  obstacleSize: {x: 1.4, y: 1.4}
   enemySpawnPositions: []
   enemySpawns: []
   waves: []

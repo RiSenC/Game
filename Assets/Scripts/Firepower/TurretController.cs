@@ -38,8 +38,8 @@ public class TurretController : MonoBehaviour
     {
         mainCamera = Camera.main;
         playerInput = GetComponentInParent<PlayerInput>();
-        if (playerInput != null)
-            fireAction = playerInput.actions["Fire"];
+        if (playerInput != null && playerInput.actions != null)
+            fireAction = playerInput.actions.FindAction("Fire", false);
 
         vehicleRigidbody = GetComponentInParent<Rigidbody2D>();
         runStats = GetComponentInParent<PlayerRunStats>();
@@ -168,8 +168,7 @@ public class TurretController : MonoBehaviour
     {
         Vector2 origin = barrelPoint.position;
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, direction, DefaultHitscanRange, hitLayers);
-        RaycastHit2D hit = default;
-        bool foundHit = false;
+        System.Array.Sort(hits, (left, right) => left.distance.CompareTo(right.distance));
 
         foreach (RaycastHit2D candidate in hits)
         {
@@ -179,17 +178,22 @@ public class TurretController : MonoBehaviour
             if (candidate.collider.transform.root == transform.root)
                 continue;
 
-            hit = candidate;
-            foundHit = true;
-            break;
+            if (candidate.collider.isTrigger)
+                continue;
+
+            HealthSystem health = candidate.collider.GetComponentInParent<HealthSystem>();
+            if (health != null)
+            {
+                health.TakeDamage(GetAdjustedDamage(), -direction);
+                SpawnTracer(origin, candidate.point);
+                return;
+            }
+
+            SpawnTracer(origin, candidate.point);
+            return;
         }
 
-        Vector2 endPoint = foundHit ? hit.point : origin + direction * DefaultHitscanRange;
-
-        if (foundHit && hit.collider.TryGetComponent<HealthSystem>(out var health))
-            health.TakeDamage(GetAdjustedDamage(), -direction);
-
-        SpawnTracer(origin, endPoint);
+        SpawnTracer(origin, origin + direction * DefaultHitscanRange);
     }
 
     void SpawnProjectile(Vector2 direction)

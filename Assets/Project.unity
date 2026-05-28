@@ -1079,8 +1079,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RunProgressionController
   player: {fileID: 1263461553}
   roomDatabase: {fileID: 11400000, guid: d8fc165e30e84278bc93a5554fcf4d76, type: 2}
-  totalFloors: 5
+  totalFloors: 3
   choicesPerFloor: 2
+  rollingThreeNodeMap: 1
+  requireCombatRewardBeforePath: 1
   basicEnemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
   heavyEnemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
   shooterEnemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}

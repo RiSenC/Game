@@ -15,6 +15,8 @@ public class EngineerUpgradePickup : MonoBehaviour
     public float pickupDelay = 0.2f;
 
     private float spawnedAt;
+    private TextMesh label;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -23,15 +25,21 @@ public class EngineerUpgradePickup : MonoBehaviour
         Collider2D trigger = GetComponent<Collider2D>();
         trigger.isTrigger = true;
 
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        if (renderer == null)
-            renderer = gameObject.AddComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 
-        renderer.sprite = RuntimeSpriteUtility.WhiteSprite;
-        renderer.color = GetColor();
+        spriteRenderer.sprite = RuntimeSpriteUtility.WhiteSprite;
+        spriteRenderer.color = GetColor();
         transform.localScale = new Vector3(0.7f, 0.7f, 1f);
 
-        EnsureLabel();
+        RefreshVisuals();
+    }
+
+    public void Configure(UpgradeType type)
+    {
+        upgradeType = type;
+        RefreshVisuals();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -49,9 +57,28 @@ public class EngineerUpgradePickup : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void RefreshVisuals()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.color = GetColor();
+
+        EnsureLabel();
+        label.text = upgradeType switch
+        {
+            UpgradeType.Hull => "Reinforce Hull",
+            UpgradeType.Turret => "Turret Tuning",
+            UpgradeType.Weapon => "Weapon Overclock",
+            UpgradeType.Mobility => "Mobility Retrofit",
+            _ => "Upgrade"
+        };
+    }
+
     private void EnsureLabel()
     {
-        TextMesh label = GetComponentInChildren<TextMesh>();
+        if (label == null)
+            label = GetComponentInChildren<TextMesh>();
         if (label == null)
         {
             GameObject labelObject = new GameObject("Label");
@@ -63,15 +90,6 @@ public class EngineerUpgradePickup : MonoBehaviour
             label.alignment = TextAlignment.Center;
             label.color = Color.white;
         }
-
-        label.text = upgradeType switch
-        {
-            UpgradeType.Hull => "Reinforce Hull",
-            UpgradeType.Turret => "Turret Tuning",
-            UpgradeType.Weapon => "Weapon Overclock",
-            UpgradeType.Mobility => "Mobility Retrofit",
-            _ => "Upgrade"
-        };
     }
 
     private Color GetColor()

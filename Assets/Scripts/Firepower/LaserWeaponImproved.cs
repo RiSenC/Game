@@ -6,7 +6,6 @@ using UnityEngine;
 public class LaserWeaponImproved : WeaponBase
 {
     [Header("Laser")]
-    public float energyDrainPerSecond = 3f;
     public float maxRange = 25f;
     public LayerMask hitLayers;
     
@@ -38,7 +37,7 @@ public class LaserWeaponImproved : WeaponBase
         isFiring = true;
     }
     
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         

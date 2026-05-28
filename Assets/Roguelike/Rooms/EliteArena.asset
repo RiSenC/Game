@@ -18,15 +18,40 @@ MonoBehaviour:
   maxFloor: 99
   selectionWeight: 0.85
   waveCountOverride: 2
-  playerSpawn: {x: 0, y: -4}
+  playerSpawn: {x: 0, y: -7}
   rewardSpawn: {x: 0, y: 0.85}
+  arenaSize: {x: 20, y: 18}
+  obstaclePositions:
+  - {x: -5.5, y: -0.4}
+  - {x: 5.5, y: -0.4}
+  - {x: 0, y: 4.7}
+  obstacleSize: {x: 1.8, y: 1.8}
   enemySpawnPositions:
-  - {x: -3.5, y: 1.5}
-  - {x: 3.5, y: 1.5}
-  - {x: 0, y: 4.25}
+  - {x: -6, y: 3.4}
+  - {x: 6, y: 3.4}
+  - {x: 0, y: 7}
   enemySpawns:
   - enemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
     count: 1
   - enemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}
     count: 1
-  waves: []
+  waves:
+  - waveName: Guard Pair
+    enemySpawnPositions:
+    - {x: -6, y: 3.4}
+    - {x: 6, y: 3.4}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
+      count: 1
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 1376e8409cc109e4c9ca0cbe44b52f08, type: 3}
+      count: 1
+  - waveName: Marksman
+    enemySpawnPositions:
+    - {x: 0, y: 7}
+    - {x: -5, y: 5}
+    - {x: 5, y: 5}
+    enemySpawns:
+    - enemyPrefab: {fileID: 3748828358555252053, guid: d5aa2b88eb4d44389d35d93f0d588fe1, type: 3}
+      count: 1
+    - enemyPrefab: {fileID: 3748828358555252053, guid: 55e1dca385ec4cc1ad0e3b3643cc7101, type: 3}
+      count: 1

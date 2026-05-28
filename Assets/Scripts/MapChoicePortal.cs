@@ -8,21 +8,60 @@ public class MapChoicePortal : MonoBehaviour
     public int optionIndex;
     public string choiceLabel = "Room";
     public Color portalColor = new Color(0.3f, 0.75f, 1f, 0.8f);
+    public Vector3 visualScale = new Vector3(0.8f, 0.8f, 1f);
+
+    private TextMesh label;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         Collider2D trigger = GetComponent<Collider2D>();
         trigger.isTrigger = true;
 
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        if (renderer == null)
-            renderer = gameObject.AddComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 
-        renderer.sprite = RuntimeSpriteUtility.WhiteSprite;
-        renderer.color = portalColor;
-        transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+        spriteRenderer.sprite = RuntimeSpriteUtility.WhiteSprite;
+        spriteRenderer.color = portalColor;
+        transform.localScale = visualScale;
 
-        TextMesh label = GetComponentInChildren<TextMesh>();
+        EnsureLabel();
+    }
+
+    public void Configure(RunProgressionController targetController, int targetFloorIndex, int targetOptionIndex, string labelText)
+    {
+        Configure(targetController, targetFloorIndex, targetOptionIndex, labelText, portalColor, visualScale);
+    }
+
+    public void Configure(RunProgressionController targetController, int targetFloorIndex, int targetOptionIndex, string labelText, Color color, Vector3 scale)
+    {
+        controller = targetController;
+        floorIndex = targetFloorIndex;
+        optionIndex = targetOptionIndex;
+        choiceLabel = labelText;
+        portalColor = color;
+        visualScale = scale;
+        RefreshVisuals();
+    }
+
+    private void RefreshVisuals()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.color = portalColor;
+        transform.localScale = visualScale;
+
+        EnsureLabel();
+        label.transform.localScale = new Vector3(1f / Mathf.Max(0.01f, visualScale.x), 1f / Mathf.Max(0.01f, visualScale.y), 1f);
+        label.text = choiceLabel;
+    }
+
+    private void EnsureLabel()
+    {
+        if (label == null)
+            label = GetComponentInChildren<TextMesh>();
         if (label == null)
         {
             GameObject labelObject = new GameObject("Label");
@@ -34,8 +73,6 @@ public class MapChoicePortal : MonoBehaviour
             label.alignment = TextAlignment.Center;
             label.color = Color.white;
         }
-
-        label.text = choiceLabel;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

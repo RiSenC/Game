@@ -30,7 +30,10 @@ public class ChassisController : MonoBehaviour
             baseArmorFlat = healthSystem.armorFlat;
             baseArmorPercent = healthSystem.armorPercent;
         }
-        
+    }
+
+    private void Start()
+    {
         if (chassisStats != null)
             ApplyChassisModifiers();
     }
