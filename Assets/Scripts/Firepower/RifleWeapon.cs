@@ -7,13 +7,12 @@ public class RifleWeapon : HitscanWeapon
 {
     private void Awake()
     {
-        weaponName = "Винтовка";
+        weaponName = "Rifle";
         damage = 25f;
         fireRate = 3f;          // 3 shots/sec
         baseSpread = 2f;
         movementSpreadBonus = 3f;
         turretRotationSpeed = 250f;
-        energyCost = 0;
     }
     
     protected override void FireHitscan(Transform firePoint, float spreadMultiplier)

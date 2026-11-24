@@ -179,10 +179,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47070871f23934249a07ad65db92b669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 50
-  speed: 4
+  role: 0
+  maxHealth: 20
+  speed: 3.25
   rotationSpeed: 180
   stopDistance: 2
+  attackRange: 7.5
+  preferredDistance: 5
+  fireCooldown: 1.25
+  attackDamage: 8
+  shotTracerColor: {r: 1, g: 0.35, b: 0.25, a: 0.9}
+  healthDropChance: 0.2
+  scrapDropChance: 0.7
+  scrapAmount: 1
   enemySprite: {fileID: 0}
   damageFlashColor: {r: 1, g: 1, b: 1, a: 1}
   damageFlashDuration: 0.1

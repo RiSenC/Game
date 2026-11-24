@@ -1,0 +1,106 @@
+using UnityEngine;
+
+[RequireComponent(typeof(Collider2D))]
+public class EngineerUpgradePickup : MonoBehaviour
+{
+    public enum UpgradeType
+    {
+        Hull,
+        Turret,
+        Weapon,
+        Mobility
+    }
+
+    public UpgradeType upgradeType;
+    public float pickupDelay = 0.2f;
+
+    private float spawnedAt;
+    private TextMesh label;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spawnedAt = Time.time;
+
+        Collider2D trigger = GetComponent<Collider2D>();
+        trigger.isTrigger = true;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = RuntimeSpriteUtility.WhiteSprite;
+        spriteRenderer.color = GetColor();
+        transform.localScale = new Vector3(0.7f, 0.7f, 1f);
+
+        RefreshVisuals();
+    }
+
+    public void Configure(UpgradeType type)
+    {
+        upgradeType = type;
+        RefreshVisuals();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (Time.time < spawnedAt + pickupDelay)
+            return;
+
+        PlayerRunStats stats = other.GetComponentInParent<PlayerRunStats>();
+        PlayerModuleController player = other.GetComponentInParent<PlayerModuleController>();
+        if (stats == null || player == null)
+            return;
+
+        stats.ApplyEngineerUpgrade(upgradeType);
+        player.RefreshRuntimeBonuses();
+        Destroy(gameObject);
+    }
+
+    private void RefreshVisuals()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.color = GetColor();
+
+        EnsureLabel();
+        label.text = upgradeType switch
+        {
+            UpgradeType.Hull => "Reinforce Hull",
+            UpgradeType.Turret => "Turret Tuning",
+            UpgradeType.Weapon => "Weapon Overclock",
+            UpgradeType.Mobility => "Mobility Retrofit",
+            _ => "Upgrade"
+        };
+    }
+
+    private void EnsureLabel()
+    {
+        if (label == null)
+            label = GetComponentInChildren<TextMesh>();
+        if (label == null)
+        {
+            GameObject labelObject = new GameObject("Label");
+            labelObject.transform.SetParent(transform, false);
+            labelObject.transform.localPosition = new Vector3(0f, 0.9f, 0f);
+            label = labelObject.AddComponent<TextMesh>();
+            label.characterSize = 0.12f;
+            label.anchor = TextAnchor.MiddleCenter;
+            label.alignment = TextAlignment.Center;
+            label.color = Color.white;
+        }
+    }
+
+    private Color GetColor()
+    {
+        return upgradeType switch
+        {
+            UpgradeType.Hull => new Color(0.4f, 0.8f, 1f, 1f),
+            UpgradeType.Turret => new Color(1f, 0.75f, 0.25f, 1f),
+            UpgradeType.Weapon => new Color(1f, 0.45f, 0.35f, 1f),
+            UpgradeType.Mobility => new Color(0.45f, 1f, 0.8f, 1f),
+            _ => Color.white
+        };
+    }
+}

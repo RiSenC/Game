@@ -4,6 +4,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Handles DoT (damage over time) effects on a unit.
 /// </summary>
+[RequireComponent(typeof(HealthSystem))]
 public class DamageOverTimeComponent : MonoBehaviour
 {
     private class DotEffect
@@ -32,7 +33,8 @@ public class DamageOverTimeComponent : MonoBehaviour
             }
             else
             {
-                healthSystem.TakeDamage(activeEffects[i].damagePerSecond * Time.deltaTime);
+                if (healthSystem != null && !healthSystem.IsDead)
+                    healthSystem.TakeDamage(activeEffects[i].damagePerSecond * Time.deltaTime);
             }
         }
     }

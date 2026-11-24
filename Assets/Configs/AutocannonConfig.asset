@@ -19,6 +19,8 @@ MonoBehaviour:
   bulletsPerShot: 1
   bulletDamage: 10
   splashRadius: 0
+  rarity: 1
+  scrapCost: 14
   baseSpreadAngle: 0
   maxSpreadAngle: 5
   bulletsUntilMaxSpread: 20

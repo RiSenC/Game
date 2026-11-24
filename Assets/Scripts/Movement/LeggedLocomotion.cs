@@ -19,15 +19,13 @@ public abstract class LeggedLocomotion : LocomotionBase
     protected override void HandleInput()
     {
         // Gather movement input (relative to world)
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        movementInput = new Vector2(h, v).normalized;
+        movementInput = ReadMoveInput().normalized;
         
         // Rotate toward cursor
-        Vector3 mouseWorld = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseWorld = ReadMouseWorldPosition(mainCam);
         mouseWorld.z = 0f;
         
-        Vector2 toMouse = ((Vector2)mouseWorld - (Vector2)transform.position).normalized;
+        Vector2 toMouse = ((Vector2)mouseWorld - (Vector2)movementRoot.position).normalized;
         float targetAngle = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
         
         RotateToward(targetAngle);

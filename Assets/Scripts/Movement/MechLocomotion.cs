@@ -6,11 +6,12 @@ using UnityEngine;
 /// </summary>
 public class MechLocomotion : LeggedLocomotion
 {
-    private void Awake()
+    protected override void Awake()
     {
         maxSpeed = 8f;
         acceleration = 4f;
         rotationSpeed = 150f;
+        base.Awake();
     }
     
     public override void ApplyChassisModifiers(ChassisStats stats)

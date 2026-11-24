@@ -11,20 +11,23 @@ public abstract class WheeledLocomotion : LocomotionBase
     
     protected float currentSpeed = 0f;
     protected float desiredSteeringAngle = 0f;
+    protected float currentThrottleInput = 0f;
     
     protected override void HandleInput()
     {
         // Forward/Backward
-        float verticalInput = Input.GetAxis("Vertical");
-        float targetSpeed = verticalInput * maxSpeed;
+        Vector2 moveInput = ReadMoveInput();
+        currentThrottleInput = moveInput.y;
+        float targetSpeed = currentThrottleInput * maxSpeed;
         AccelerateToward(targetSpeed);
         currentSpeed = currentVelocity.x;
         
-        // Steering (only when moving)
-        if (Mathf.Abs(currentSpeed) > 0.1f)
+        // Steering becomes available as soon as the player is trying to drive.
+        if (Mathf.Abs(currentSpeed) > 0.05f || Mathf.Abs(currentThrottleInput) > 0.1f)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            desiredSteeringAngle = horizontalInput * steeringResponseSpeed;
+            float horizontalInput = moveInput.x;
+            float reverseSteering = currentThrottleInput < -0.1f ? 1f : -1f;
+            desiredSteeringAngle = horizontalInput * reverseSteering * steeringResponseSpeed;
         }
         else
         {
@@ -36,10 +39,10 @@ public abstract class WheeledLocomotion : LocomotionBase
     {
         // Apply steering
         float steerAmount = desiredSteeringAngle * Time.deltaTime;
-        RotateToward(transform.eulerAngles.z + steerAmount);
+        RotateToward(movementRoot.eulerAngles.z + steerAmount);
         
-        // Apply forward movement
-        Vector2 forward = (Vector2)transform.right * currentSpeed;
+        // Player art faces up, so local up is the forward direction.
+        Vector2 forward = (Vector2)movementRoot.up * currentSpeed;
         rb.linearVelocity = forward;
     }
 }

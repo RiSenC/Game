@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f33430e341a8244800c076a502e010, type: 3}
   m_Name: MediumChassis
   m_EditorClassIdentifier: Assembly-CSharp::ChassisStats
-  type: 0
+  type: 1
   maxHealthModifier: 1
   armorFlatModifier: 1
   armorPercentModifier: 1
   speedMultiplier: 1
   accelerationMultiplier: 1
   turningMultiplier: 1
-  maxEnergyModifier: 1
-  energyRegenModifier: 1

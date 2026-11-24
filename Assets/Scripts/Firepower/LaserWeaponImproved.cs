@@ -6,22 +6,18 @@ using UnityEngine;
 public class LaserWeaponImproved : WeaponBase
 {
     [Header("Laser")]
-    public float energyDrainPerSecond = 3f;
     public float maxRange = 25f;
     public LayerMask hitLayers;
     
     private LineRenderer beamRenderer;
     private bool isFiring = false;
-    private HealthSystem currentTarget;
-    
     private void Awake()
     {
-        weaponName = "Лазер";
+        weaponName = "Laser";
         damage = 20f;           // per second
         fireRate = 999f;        // n/a for laser
         baseSpread = 0f;
         turretRotationSpeed = 350f;
-        energyCost = 0;         // handled via drain
     }
     
     private void Start()
@@ -33,7 +29,7 @@ public class LaserWeaponImproved : WeaponBase
     
     protected override bool CanFire(ChassisController chassis)
     {
-        return chassis != null && chassis.currentEnergy > energyDrainPerSecond * Time.deltaTime;
+        return true;
     }
     
     protected override void Fire(Transform firePoint, float spreadMultiplier)
@@ -41,7 +37,7 @@ public class LaserWeaponImproved : WeaponBase
         isFiring = true;
     }
     
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         

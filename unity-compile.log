@@ -1,0 +1,507 @@
+Built from '6000.3/staging' branch; Version is '6000.3.9f1 (7a9955a4f2fa) revision 8034645'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::Module] Trying to connect to existing licensing client channel...
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32692 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-05-28T20:44:23Z
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor" at "2026-05-28T20:44:23.3698008Z"
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+D:\GitHub_Unity\Game
+-logFile
+D:\GitHub_Unity\Game\unity-compile.log
+Successfully changed project path to: D:\GitHub_Unity\Game
+D:/GitHub_Unity/Game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [10464]  Target information:
+
+Player connection [10464]  * "[IP] 26.211.197.167 [Port] 55504 [Flags] 2 [Guid] 3524567016 [EditorId] 3524567016 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [10464]  * "[IP] 192.168.0.153 [Port] 55504 [Flags] 2 [Guid] 3524567016 [EditorId] 3524567016 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [10464]  * "[IP] 172.18.0.1 [Port] 55504 [Flags] 2 [Guid] 3524567016 [EditorId] 3524567016 [Version] 1048832 [Id] WindowsEditor(7,PC-RSC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [10464] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [10464] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-20408" after 0.4 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              db99f063dc244302815698ee8e965109
+  Correlation Id:          1adb5b791413d99770d53b8341961368
+  External correlation Id: 3727094576863284190
+  Machine Id:              7tqNkU/SVULWXSjn9y3JhTbsvig=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-cybor" (connect: 0.00s, validation: 0.00s, handshake: 0.99s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-cybor-notifications" at "2026-05-28T20:44:24.3573905Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-R5US-DR8T-GGSV-2GGS-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 10171064879466-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-R5US-DR8T-GGSV-2GGS-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 10171064879466-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.99s
+[Licensing::Module] Licensing is initialized (took 0.41s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-R5US-DR8T-GGSV-2GGS-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 10171064879466-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 11 unused hashed content files
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.9f1 (7a9955a4f2fa)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/GitHub_Unity/Game/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon RX 6600 (ID=0x73ff)
+    Vendor:   ATI
+    VRAM:     8147 MB
+    Driver:   32.0.21043.10005
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56408
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003114 seconds.
+- Loaded All Assemblies, in  0.609 seconds
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.654 seconds
+Domain Reload Profiling: 1258ms
+	BeginReloadAssembly (227ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (78ms)
+	LoadAllAssembliesAndSetupDomain (231ms)
+		LoadAssemblies (189ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (226ms)
+			TypeCache.Refresh (223ms)
+				TypeCache.ScanAssembly (208ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (654ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (600ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (90ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (135ms)
+			ProcessInitializeOnLoadAttributes (254ms)
+			ProcessInitializeOnLoadMethodAttributes (113ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-R5US-DR8T-GGSV-2GGS-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 10171064879466-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 67 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.2d.animation@13.0.4 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.animation@7396d8477ca9)
+    com.unity.2d.aseprite@3.0.1 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.aseprite@809e3a168ff7)
+    com.unity.2d.psdimporter@12.0.1 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.psdimporter@9abe0f7cac7e)
+    com.unity.2d.spriteshape@13.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.spriteshape@0738bab11647)
+    com.unity.2d.tilemap.extras@6.0.1 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.tilemap.extras@3dde84bf3867)
+    com.unity.cinemachine@3.1.4 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.cinemachine@b66fdb7cd1f2)
+    com.unity.collab-proxy@2.11.3 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.collab-proxy@e566cd3e7623)
+    com.unity.ide.rider@3.0.39 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.ide.rider@4504839d03f7)
+    com.unity.ide.visualstudio@2.0.26 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.inputsystem@1.19.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.inputsystem@21a28c3a6c83)
+    com.unity.timeline@1.8.10 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.timeline@7f8b2fb101b6)
+    com.unity.visualscripting@1.9.9 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.visualscripting@191c0d7e3b69)
+    com.unity.splines@2.8.2 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.splines@1cb7d86fc7ff)
+    com.unity.2d.common@12.0.2 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.common@800085e896ad)
+    com.unity.mathematics@1.3.3 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.6.2 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.collections@aea9d3bd5e19)
+    com.unity.searcher@4.9.4 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.searcher@d45a78918735)
+    com.unity.burst@1.8.28 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.burst@07790c2d06d9)
+    com.unity.settings-manager@2.1.1 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.settings-manager@0b8638c5ce86)
+    com.unity.nuget.mono-cecil@1.11.6 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.2.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.test-framework.performance@0840f58e4562)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.sprite@d14b9d497a24)
+    com.unity.2d.tilemap@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.2d.tilemap@f011712243ad)
+    com.unity.multiplayer.center@1.0.1 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.render-pipelines.universal@7327e77c1cc2)
+    com.unity.test-framework@1.6.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d)
+    com.unity.ugui@2.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.ugui@bb329a87fcdc)
+    com.unity.modules.accessibility@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.render-pipelines.core@04ab0eefa0c3)
+    com.unity.shadergraph@17.3.0 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.shadergraph@f80b792d4861)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\GitHub_Unity\Game\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/GitHub_Unity/Game
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 3s83ms
+[ 835/1077  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[1073/1077  0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Movement\MechLocomotion.cs(9,18): warning CS0114: 'MechLocomotion.Awake()' hides inherited member 'LeggedLocomotion.Awake()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+
+Assets\Scripts\Movement\SpiderLocomotion.cs(9,18): warning CS0114: 'SpiderLocomotion.Awake()' hides inherited member 'LeggedLocomotion.Awake()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+
+Assets\Scripts\Firepower\LaserWeaponImproved.cs(41,18): warning CS0114: 'LaserWeaponImproved.Update()' hides inherited member 'WeaponBase.Update()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+[1074/1077  2s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 137 defines and 334 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[1075/1077  0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[1076/1077  0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+*** Tundra build success (3.04 seconds), 5 items updated, 1077 evaluated
+Assets\Scripts\Movement\MechLocomotion.cs(9,18): warning CS0114: 'MechLocomotion.Awake()' hides inherited member 'LeggedLocomotion.Awake()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+Assets\Scripts\Movement\SpiderLocomotion.cs(9,18): warning CS0114: 'SpiderLocomotion.Awake()' hides inherited member 'LeggedLocomotion.Awake()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+Assets\Scripts\Firepower\LaserWeaponImproved.cs(41,18): warning CS0114: 'LaserWeaponImproved.Update()' hides inherited member 'WeaponBase.Update()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+AssetDatabase: script compilation time: 3.643921s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 17.033 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Start importing Assets/Roguelike using Guid(c5c95c0d40c84258b7b48dffefd63e8b) (DefaultImporter) -> (artifact id: 'a0796c14cac8157f0a3c8cb2afd79ede') in 0.02942273389495 seconds
+Start importing Assets/Roguelike/Rooms using Guid(20d81b410db54c8d8ed433cf8925f6a9) (DefaultImporter) -> (artifact id: '8ca124fc09f3885cf525204e20246dbc') in 0.00290057814611 seconds
+Refreshing native plugins compatible for Editor in 212.34 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 12.439 seconds
+Domain Reload Profiling: 29468ms
+	BeginReloadAssembly (417ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (162ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (16513ms)
+		LoadAssemblies (15948ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (735ms)
+			TypeCache.Refresh (620ms)
+				TypeCache.ScanAssembly (609ms)
+			BuildScriptInfoCaches (93ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (12439ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (10543ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (34ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (247ms)
+			ProcessInitializeOnLoadAttributes (6444ms)
+			ProcessInitializeOnLoadMethodAttributes (3799ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (2ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Start importing Assets/Project.unity using Guid(f3b098a4a90210a4084b804b9725bc82) (DefaultImporter) -> (artifact id: 'b0b485c3dac126e7e229bf4c67c3d1c3') in 0.00897830590201 seconds
+Start importing Assets/Scenes/Main.unity using Guid(0ea5e0ba480ae864a954d2380252454d) (DefaultImporter) -> (artifact id: 'e91e1ed424d48f959ea4311522bd6cad') in 0.00808559467754 seconds
+Start importing Assets/Configs/MachineGunConfig.asset using Guid(e0cb52d29d69c2f46b9e831dbee72ae6) (NativeFormatImporter) -> (artifact id: '967425b29ea5253545ee463f33774daf') in 0.23940060817786 seconds
+Start importing Assets/Configs/AssaultHullConfig.asset using Guid(a1f2309e5f2f4491af7d23a44e2d9c11) (NativeFormatImporter) -> (artifact id: '1ab3054f31c302d58cec5168799a1ada') in 0.05767534700639 seconds
+Start importing Assets/Configs/StormTurretConfig.asset using Guid(940035509d884fce9a1f08da4a7258d9) (NativeFormatImporter) -> (artifact id: 'f6400b3f1984655677649d14bfd39524') in 0.00358537188386 seconds
+Start importing Assets/Roguelike/Rooms/StarterSkirmish.asset using Guid(47effaa1bbf44eaeb8f00c8848e6aafb) (NativeFormatImporter) -> (artifact id: '153a3921093229c839247336ffe75621') in 0.13675124911127 seconds
+Start importing Assets/Roguelike/RoomDatabase.asset using Guid(d8fc165e30e84278bc93a5554fcf4d76) (NativeFormatImporter) -> (artifact id: '4ac8ed00f577563d58aad8fe5856270a') in 0.00772842637821 seconds
+Start importing Assets/Roguelike/Rooms/SignalVault.asset using Guid(89e11f48bbf74fcd83e07deff1ab2ca0) (NativeFormatImporter) -> (artifact id: 'd73b6c378ca04c7d44a6fe5561d4d4d7') in 0.00154705416471 seconds
+Start importing Assets/Roguelike/Rooms/EliteArena.asset using Guid(cb465d78057f48aa8662cff57c305261) (NativeFormatImporter) -> (artifact id: '3658acd9964c8ab5efd11374f9bc05cb') in 0.0012866160364 seconds
+Start importing Assets/Roguelike/Rooms/HeavyCorridor.asset using Guid(8cef7dd3c8eb4f3baf68585fe7f4c370) (NativeFormatImporter) -> (artifact id: '1d0d347d2eccf18f95ceb74b9f5beede') in 0.00131587953218 seconds
+Start importing Assets/Configs/BurstTurretConfig.asset using Guid(dcae663f8d4d41b78a8fc782984f1799) (NativeFormatImporter) -> (artifact id: 'f0d0a967740ec0dc7457040ccc8bc1cc') in 0.00245659713735 seconds
+Start importing Assets/Configs/CarHullConfig.asset using Guid(0d461ae56851fc4409f475cbfe52f60b) (NativeFormatImporter) -> (artifact id: '8b830942580d21202a22608f95dd0fb4') in 0.0906453892883 seconds
+Start importing Assets/Configs/AutocannonConfig.asset using Guid(4e34c076a04cc1444828bf20687c29d5) (NativeFormatImporter) -> (artifact id: '8eb8b04218ecf4eb5794ab02ecd1ca1e') in 0.01315509373398 seconds
+Start importing Assets/Configs/RelicHullConfig.asset using Guid(6e6bb7ff34fd4f899089fe4f18284bd4) (NativeFormatImporter) -> (artifact id: 'b35dc271fa705694f3decd1074070d74') in 0.00199375898333 seconds
+Start importing Assets/Roguelike/Rooms/CrossfireNest.asset using Guid(7eea8a9573344590bd0648d8d55894ac) (NativeFormatImporter) -> (artifact id: '2ee4e2998bbbbe6fa888f090fb737328') in 0.00180672403895 seconds
+Start importing Assets/Configs/EnemyHullConfig.asset using Guid(4f54cd4a0897f5740bed967d5614abd6) (NativeFormatImporter) -> (artifact id: 'b9a62bf95b380f30091ac4733492a9ba') in 0.01074284580862 seconds
+Start importing Assets/Roguelike/Rooms/TradeDepot.asset using Guid(6fcba76e0d964e0b9ac973912ef5f758) (NativeFormatImporter) -> (artifact id: '2b1b869d24cc2492c8337ba2cb579ab2') in 0.00170161291449 seconds
+Start importing Assets/Roguelike/Rooms/EngineerBay.asset using Guid(dffce67ed3194330b6f28f3bc51a2910) (NativeFormatImporter) -> (artifact id: 'fa4a41c0b45a83eeb60b124822a76a2b') in 0.00186867325316 seconds
+Start importing Assets/Configs/DefaultHullConfig.asset using Guid(ff2e384a3e4d9fe4190eacf8822213bf) (NativeFormatImporter) -> (artifact id: 'a1b451c2ce1d1ea0838b482494a35385') in 0.01204859835538 seconds
+Start importing Assets/Prefabs/Enemy.prefab using Guid(1376e8409cc109e4c9ca0cbe44b52f08) (PrefabImporter) -> (artifact id: '8ab3187fd818b73f9616ec7deda8f95f') in 0.01727049108197 seconds
+Start importing Assets/Prefabs/HeavyEnemy.prefab using Guid(55e1dca385ec4cc1ad0e3b3643cc7101) (PrefabImporter) -> (artifact id: '3bed519740d5a089f77f8117694c2d59') in 0.00358160045481 seconds
+Start importing Assets/Prefabs/ShooterEnemy.prefab using Guid(d5aa2b88eb4d44389d35d93f0d588fe1) (PrefabImporter) -> (artifact id: '1ce6ba9d03c823c2e489c29027dabd7f') in 0.00321437501135 seconds
+Refreshing native plugins compatible for Editor in 2.31 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=46827eaf1f40e694d933b617aec67af0): Total: 38.221 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=23 (actual=23, local cache=0, cache server=0)
+		Asset DB Process Time: managed=19 ms, native=15315 ms
+		Asset DB Callback time: managed=2084 ms, native=38 ms
+		Scripting: domain reloads=1, domain reload time=17034 ms, compile time=3646 ms, other=82 ms
+		Project Asset Count: scripts=1537, non-scripts=3313
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.008ms
+	InvokePackagesCallback: 30.156ms
+	ApplyChangesToAssetFolders: 1.015ms
+	Scan: 194.043ms
+	OnSourceAssetsModified: 1.391ms
+	CategorizeAssetsWithTransientArtifact: 61.333ms
+	ProcessAssetsWithTransientArtifactChanges: 114.530ms
+	CategorizeAssets: 1245.388ms
+	ImportOutOfDateAssets: 13482.164ms (9137.655ms without children)
+		ImportManagerImport: 695.640ms (5.428ms without children)
+			ImportInProcess: 689.952ms
+			UpdateCategorizedAssets: 0.260ms
+		CompileScripts: 3645.546ms
+		ReloadNativeAssets: 0.057ms
+		UnloadImportedAssets: 1.051ms
+		ReloadImportedAssets: 0.039ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 1.546ms
+		InitializingProgressBar: 0.030ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.005ms
+		OnDemandSchedulerStart: 0.595ms
+	PostProcessAllAssets: 2088.938ms
+	Hotreload: 6.038ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.004ms
+	UnloadStreamsBegin: 2.386ms
+	PersistCurrentRevisions: 0.385ms
+	UnloadStreamsEnd: 0.003ms
+	GenerateScriptTypeHashes: 4.127ms
+	Untracked: 20993.128ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Scanning for USB devices : 24.667ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Game
+GetVirtualKey: Could not map char: z (122) to any virtual key
+GetVirtualKey: Could not map char: y (121) to any virtual key
+GetVirtualKey: Could not map char: x (120) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: v (118) to any virtual key
+GetVirtualKey: Could not map char: V (86) to any virtual key
+GetVirtualKey: Could not map char: d (100) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: d (100) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: r (114) to any virtual key
+GetVirtualKey: Could not map char: i (105) to any virtual key
+GetVirtualKey: Could not map char: l (108) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: k (107) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: r (114) to any virtual key
+GetVirtualKey: Could not map char: P (80) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: g (103) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: o (111) to any virtual key
+GetVirtualKey: Could not map char: s (115) to any virtual key
+GetVirtualKey: Could not map char: s (115) to any virtual key
+GetVirtualKey: Could not map char: b (98) to any virtual key
+GetVirtualKey: Could not map char: b (98) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: u (117) to any virtual key
+Unloading 20 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7316 unused Assets / (6.4 MB). Loaded Objects now: 8164.
+Memory consumption went from 230.7 MB to 224.3 MB.
+Total: 16.880428 ms (FindLiveObjects: 0.922114 ms CreateObjectMapping: 1.587772 ms MarkObjects: 10.058820 ms  DeleteObjects: 4.303689 ms)
+
+GetVirtualKey: Could not map char: z (122) to any virtual key
+GetVirtualKey: Could not map char: y (121) to any virtual key
+GetVirtualKey: Could not map char: x (120) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: v (118) to any virtual key
+GetVirtualKey: Could not map char: V (86) to any virtual key
+GetVirtualKey: Could not map char: d (100) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: d (100) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: r (114) to any virtual key
+GetVirtualKey: Could not map char: i (105) to any virtual key
+GetVirtualKey: Could not map char: l (108) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: k (107) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: p (112) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: r (114) to any virtual key
+GetVirtualKey: Could not map char: P (80) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: g (103) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: f (102) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: a (97) to any virtual key
+GetVirtualKey: Could not map char: n (110) to any virtual key
+GetVirtualKey: Could not map char: o (111) to any virtual key
+GetVirtualKey: Could not map char: s (115) to any virtual key
+GetVirtualKey: Could not map char: s (115) to any virtual key
+GetVirtualKey: Could not map char: b (98) to any virtual key
+GetVirtualKey: Could not map char: b (98) to any virtual key
+GetVirtualKey: Could not map char: c (99) to any virtual key
+GetVirtualKey: Could not map char: u (117) to any virtual key
+Batchmode quit successfully invoked - shutting down!
+Curl error 42: Callback aborted
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-cybor-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-cybor channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

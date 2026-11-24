@@ -14,19 +14,20 @@ public class RocketWeaponImproved : ProjectileWeapon
     
     private void Awake()
     {
-        weaponName = "Ракетомёт";
+        weaponName = "Rocket Launcher";
         damage = 25f;           // direct hit
         fireRate = 0.5f;
         baseSpread = 2f;
         movementSpreadBonus = 4f;
         turretRotationSpeed = 120f;
         projectileSpeed = 8f;   // slow initial speed
-        energyCost = 2;
     }
     
     protected override void FireProjectile(Transform firePoint, float spreadMultiplier)
     {
         GameObject proj = SpawnProjectile(firePoint, spreadMultiplier);
+        if (proj == null)
+            return;
         
         if (proj.TryGetComponent<Rocket>(out var rocket))
         {
@@ -40,6 +41,6 @@ public class RocketWeaponImproved : ProjectileWeapon
     
     protected override bool CanFire(ChassisController chassis)
     {
-        return chassis != null && chassis.TryConsumeEnergy(energyCost);
+        return true;
     }
 }

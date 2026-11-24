@@ -14,12 +14,11 @@ public class FlamethrowerWeapon : WeaponBase
     
     private void Awake()
     {
-        weaponName = "Огнемёт";
+        weaponName = "Flamethrower";
         damage = 15f;
         fireRate = 2f;
         baseSpread = 0f;
         turretRotationSpeed = 200f;
-        energyCost = 1;
     }
     
     protected override void Fire(Transform firePoint, float spreadMultiplier)
@@ -48,6 +47,6 @@ public class FlamethrowerWeapon : WeaponBase
     
     protected override bool CanFire(ChassisController chassis)
     {
-        return chassis != null && chassis.TryConsumeEnergy(energyCost);
+        return true;
     }
 }

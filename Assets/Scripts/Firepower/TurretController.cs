@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class TurretController : MonoBehaviour
 {
+    private const float DefaultHitscanRange = 40f;
+    private const float TracerLifetime = 0.05f;
+
     public Transform barrelPoint;
     public GameObject bulletPrefab;
     public TurretConfig turretConfig;
@@ -12,11 +15,12 @@ public class TurretController : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction fireAction;
     private Vector3 mouseWorldPos;
-    private PlayerMovement playerMovement;
+    private Rigidbody2D vehicleRigidbody;
     
     private int bulletsFiredInBurst = 0;
     private float timeSinceLastShot = 0f;
     private float currentAccuracy = 0f;
+    private PlayerRunStats runStats;
     
     [Header("Accuracy Settings")]
     public int accuracyThreshold = 10;
@@ -24,23 +28,34 @@ public class TurretController : MonoBehaviour
     public float standingAccuracyRecoveryRate = 3f;
     public float movingAccuracyDecayDelay = 0.5f;
     public float movingAccuracyDecayRate = 8f;
+
+    [Header("Hitscan")]
+    public LayerMask hitLayers = Physics2D.DefaultRaycastLayers;
+    public float tracerWidth = 0.06f;
+    public Color tracerColor = new Color(1f, 0.9f, 0.4f, 0.9f);
     
     void Start()
     {
         mainCamera = Camera.main;
         playerInput = GetComponentInParent<PlayerInput>();
-        fireAction = playerInput.actions["Fire"];
-        playerMovement = GetComponentInParent<PlayerMovement>();
+        if (playerInput != null && playerInput.actions != null)
+            fireAction = playerInput.actions.FindAction("Fire", false);
+
+        vehicleRigidbody = GetComponentInParent<Rigidbody2D>();
+        runStats = GetComponentInParent<PlayerRunStats>();
         currentAccuracy = 0f;
     }
     
     void Update()
     {
+        if (barrelPoint == null || turretConfig == null || mainCamera == null)
+            return;
+
         UpdateMousePosition();
         AimAtMouse();
         UpdateAccuracy();
         
-        if (fireAction.IsPressed())
+        if (fireAction != null && fireAction.IsPressed())
         {
             TryFire();
         }
@@ -59,6 +74,13 @@ public class TurretController : MonoBehaviour
         }
         
         transform.localScale = newConfig.turretScale;
+        RefreshRuntimeBonuses();
+    }
+
+    public void RefreshRuntimeBonuses()
+    {
+        if (runStats == null)
+            runStats = GetComponentInParent<PlayerRunStats>();
     }
     
     void UpdateMousePosition()
@@ -87,7 +109,8 @@ public class TurretController : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
         
-        if (playerMovement.IsMoving())
+        bool isMoving = vehicleRigidbody != null && vehicleRigidbody.linearVelocity.sqrMagnitude > 0.01f;
+        if (isMoving)
         {
             if (timeSinceLastShot > movingAccuracyDecayDelay)
             {
@@ -96,7 +119,7 @@ public class TurretController : MonoBehaviour
         }
         else
         {
-            currentAccuracy -= standingAccuracyRecoveryRate * Time.deltaTime;
+            currentAccuracy -= standingAccuracyRecoveryRate * GetAccuracyRecoveryMultiplier() * Time.deltaTime;
         }
         
         currentAccuracy = Mathf.Clamp(currentAccuracy, 0f, turretConfig.maxSpreadAngle);
@@ -111,7 +134,8 @@ public class TurretController : MonoBehaviour
     
     void TryFire()
     {
-        if (Time.time - lastFireTime < turretConfig.fireRate)
+        float adjustedCooldown = turretConfig.fireRate / GetFireRateMultiplier();
+        if (Time.time - lastFireTime < adjustedCooldown)
             return;
         
         lastFireTime = Time.time;
@@ -122,13 +146,16 @@ public class TurretController : MonoBehaviour
     void Fire()
     {
         Vector2 fireDirection = barrelPoint.up;
-        float currentSpread = GetCurrentSpread();
+        float currentSpread = turretConfig.baseSpreadAngle + GetCurrentSpread();
         
         for (int i = 0; i < turretConfig.bulletsPerShot; i++)
         {
             float spreadOffset = Random.Range(-currentSpread, currentSpread);
             Vector2 bulletDir = Quaternion.Euler(0, 0, spreadOffset) * fireDirection;
-            SpawnBullet(bulletDir);
+            if (turretConfig.weaponType == TurretConfig.WeaponType.Bullet)
+                FireHitscan(bulletDir);
+            else
+                SpawnProjectile(bulletDir);
         }
         
         if (bulletsFiredInBurst >= accuracyThreshold)
@@ -137,16 +164,88 @@ public class TurretController : MonoBehaviour
         bulletsFiredInBurst++;
     }
     
-    void SpawnBullet(Vector2 direction)
+    void FireHitscan(Vector2 direction)
     {
-        GameObject bulletObj = Instantiate(bulletPrefab, barrelPoint.position, Quaternion.identity);
-        Bullet bullet = bulletObj.GetComponent<Bullet>();
-        
-        if (bullet != null)
+        Vector2 origin = barrelPoint.position;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, direction, DefaultHitscanRange, hitLayers);
+        System.Array.Sort(hits, (left, right) => left.distance.CompareTo(right.distance));
+
+        foreach (RaycastHit2D candidate in hits)
         {
-            // Bullet velocity = direction * speed + vehicle velocity (inertia)
-            Vector2 bulletVelocity = direction * turretConfig.bulletSpeed + playerMovement.GetCurrentVelocity();
-            bullet.Initialize(bulletVelocity, turretConfig.bulletDamage);
+            if (candidate.collider == null)
+                continue;
+
+            if (candidate.collider.transform.root == transform.root)
+                continue;
+
+            if (candidate.collider.isTrigger)
+                continue;
+
+            HealthSystem health = candidate.collider.GetComponentInParent<HealthSystem>();
+            if (health != null)
+            {
+                health.TakeDamage(GetAdjustedDamage(), -direction);
+                SpawnTracer(origin, candidate.point);
+                return;
+            }
+
+            SpawnTracer(origin, candidate.point);
+            return;
         }
+
+        SpawnTracer(origin, origin + direction * DefaultHitscanRange);
+    }
+
+    void SpawnProjectile(Vector2 direction)
+    {
+        if (bulletPrefab == null)
+            return;
+
+        GameObject bulletObj = Instantiate(bulletPrefab, barrelPoint.position, Quaternion.identity);
+        ProjectileBase projectile = bulletObj.GetComponent<ProjectileBase>();
+
+        if (projectile != null)
+        {
+            Vector2 inheritedVelocity = vehicleRigidbody != null ? vehicleRigidbody.linearVelocity : Vector2.zero;
+            Vector2 bulletVelocity = direction * turretConfig.bulletSpeed + inheritedVelocity;
+            projectile.Init(GetAdjustedDamage(), bulletVelocity.magnitude);
+            Rigidbody2D bulletRb = bulletObj.GetComponent<Rigidbody2D>();
+            if (bulletRb != null)
+                bulletRb.linearVelocity = bulletVelocity;
+        }
+    }
+
+    float GetAdjustedDamage()
+    {
+        return turretConfig.bulletDamage * (runStats != null ? runStats.WeaponDamageMultiplier : 1f);
+    }
+
+    float GetFireRateMultiplier()
+    {
+        return runStats != null ? runStats.TurretFireRateMultiplier : 1f;
+    }
+
+    float GetAccuracyRecoveryMultiplier()
+    {
+        return runStats != null ? runStats.AccuracyRecoveryMultiplier : 1f;
+    }
+
+    void SpawnTracer(Vector2 start, Vector2 end)
+    {
+        GameObject tracer = new GameObject("Tracer");
+        tracer.transform.position = start;
+
+        LineRenderer line = tracer.AddComponent<LineRenderer>();
+        line.positionCount = 2;
+        line.SetPosition(0, start);
+        line.SetPosition(1, end);
+        line.startWidth = tracerWidth;
+        line.endWidth = tracerWidth;
+        line.material = new Material(Shader.Find("Sprites/Default"));
+        line.startColor = tracerColor;
+        line.endColor = tracerColor;
+        line.sortingOrder = 10;
+
+        Destroy(tracer, TracerLifetime);
     }
 }

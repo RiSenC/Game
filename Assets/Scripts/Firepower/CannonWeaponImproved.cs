@@ -14,19 +14,20 @@ public class CannonWeaponImproved : ProjectileWeapon
     
     private void Awake()
     {
-        weaponName = "Пушка";
+        weaponName = "Cannon";
         damage = 30f;           // direct hit
         fireRate = 0.8f;
         baseSpread = 1f;
         movementSpreadBonus = 5f;
         turretRotationSpeed = 100f;
         projectileSpeed = 25f;  // fast initial speed
-        energyCost = 0;
     }
     
     protected override void FireProjectile(Transform firePoint, float spreadMultiplier)
     {
         GameObject proj = SpawnProjectile(firePoint, spreadMultiplier);
+        if (proj == null)
+            return;
         
         if (proj.TryGetComponent<CannonShell>(out var shell))
         {

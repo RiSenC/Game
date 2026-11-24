@@ -6,10 +6,11 @@ using UnityEngine;
 /// </summary>
 public class SpiderLocomotion : LeggedLocomotion
 {
-    private void Awake()
+    protected override void Awake()
     {
         maxSpeed = 14f;
         acceleration = 6f;
         rotationSpeed = 220f;
+        base.Awake();
     }
 }

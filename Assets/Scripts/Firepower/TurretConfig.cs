@@ -19,6 +19,10 @@ public class TurretConfig : ScriptableObject
     [Header("Damage")]
     public float bulletDamage = 10f;
     public float splashRadius = 0f;
+
+    [Header("Meta")]
+    public ModuleRarity rarity = ModuleRarity.Common;
+    public int scrapCost = 10;
     
     [Header("Accuracy & Spread")]
     public float baseSpreadAngle = 2f;

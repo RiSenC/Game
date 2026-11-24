@@ -9,64 +9,70 @@ public class ChassisController : MonoBehaviour
     [Header("Chassis Configuration")]
     public ChassisStats chassisStats;
     
-    [Header("Energy System")]
-    public float maxEnergy = 100f;
-    [HideInInspector] public float currentEnergy;
-    public float energyRegenPerSecond = 5f;
-    
     private HealthSystem healthSystem;
     private LocomotionBase locomotion;
     private WeaponSystem weaponSystem;
+    private float baseMaxHP;
+    private float baseArmorFlat;
+    private float baseArmorPercent;
+    private PlayerRunStats runStats;
     
     private void Awake()
     {
         healthSystem = GetComponent<HealthSystem>();
         locomotion = GetComponentInChildren<LocomotionBase>();
         weaponSystem = GetComponentInChildren<WeaponSystem>();
-        
+        runStats = GetComponent<PlayerRunStats>();
+
+        if (healthSystem != null)
+        {
+            baseMaxHP = healthSystem.maxHP;
+            baseArmorFlat = healthSystem.armorFlat;
+            baseArmorPercent = healthSystem.armorPercent;
+        }
+    }
+
+    private void Start()
+    {
         if (chassisStats != null)
             ApplyChassisModifiers();
-        
-        currentEnergy = maxEnergy;
-    }
-    
-    private void Update()
-    {
-        // Regenerate energy
-        currentEnergy = Mathf.Clamp(currentEnergy + energyRegenPerSecond * Time.deltaTime, 0f, maxEnergy);
     }
     
     private void ApplyChassisModifiers()
     {
+        locomotion = GetComponentInChildren<LocomotionBase>();
+        weaponSystem = GetComponentInChildren<WeaponSystem>();
+
         // Apply health & armor mods
         if (healthSystem != null)
         {
-            healthSystem.maxHP *= chassisStats.maxHealthModifier;
+            healthSystem.maxHP = baseMaxHP * chassisStats.maxHealthModifier;
             healthSystem.currentHP = healthSystem.maxHP;
-            healthSystem.armorFlat *= chassisStats.armorFlatModifier;
-            healthSystem.armorPercent *= chassisStats.armorPercentModifier;
+            healthSystem.armorFlat = baseArmorFlat * chassisStats.armorFlatModifier;
+            healthSystem.armorPercent = Mathf.Clamp(baseArmorPercent * chassisStats.armorPercentModifier, 0f, 0.99f);
         }
         
         // Apply locomotion mods
         if (locomotion != null)
         {
             locomotion.ApplyChassisModifiers(chassisStats);
+            locomotion.ApplyRunModifiers(runStats);
         }
-        
-        // Apply energy mods
-        maxEnergy *= chassisStats.maxEnergyModifier;
-        energyRegenPerSecond *= chassisStats.energyRegenModifier;
-        currentEnergy = maxEnergy;
     }
-    
-    public bool TryConsumeEnergy(float amount)
+
+    public void SetBaseHullStats(float maxHP, float armorFlat)
     {
-        if (currentEnergy >= amount)
+        baseMaxHP = maxHP;
+        baseArmorFlat = armorFlat;
+
+        if (chassisStats != null)
+            ApplyChassisModifiers();
+        else if (healthSystem != null)
         {
-            currentEnergy -= amount;
-            return true;
+            healthSystem.maxHP = maxHP;
+            healthSystem.currentHP = maxHP;
+            healthSystem.armorFlat = armorFlat;
         }
-        return false;
     }
     
     /// <summary>Swap chassis at runtime</summary>
@@ -79,16 +85,33 @@ public class ChassisController : MonoBehaviour
     /// <summary>Swap locomotion at runtime</summary>
     public void SwitchLocomotion(LocomotionBase newLocomotion)
     {
+        if (newLocomotion == null)
+            return;
+
         if (locomotion != null)
             Destroy(locomotion.gameObject);
         
         locomotion = Instantiate(newLocomotion, transform);
         locomotion.chassis = this;
+        if (chassisStats != null)
+            locomotion.ApplyChassisModifiers(chassisStats);
+        locomotion.ApplyRunModifiers(runStats);
+    }
+
+    public void ApplyRunModifiers(PlayerRunStats stats)
+    {
+        runStats = stats;
+        locomotion = GetComponentInChildren<LocomotionBase>();
+        if (locomotion != null)
+            locomotion.ApplyRunModifiers(runStats);
     }
     
     /// <summary>Swap weapon at runtime</summary>
     public void SwitchWeapon(WeaponBase newWeapon)
     {
+        if (weaponSystem == null)
+            weaponSystem = GetComponentInChildren<WeaponSystem>();
+
         if (weaponSystem != null)
             weaponSystem.EquipWeapon(newWeapon);
     }
